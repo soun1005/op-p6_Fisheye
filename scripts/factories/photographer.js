@@ -2,9 +2,9 @@
 function photographerFactory(data) { // eslint-disable-line no-unused-vars
   // let name = data.name;
   // let portrait = data.portrait;
-  // 객체구조분해
+  // Destructuring Assignment 객체구조분해
   const {
-    name, portrait, id, city, country, tagline, price,
+    name, portrait, id, city, country, tagline, price, title,
   } = data;
 
   // photos of photographers
@@ -22,7 +22,7 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     // <img>
     const img = document.createElement('img');
     img.setAttribute('src', picture);
-    img.setAttribute('alt', `photo of ${name}`);
+    img.setAttribute('alt', title);
     // <h2>
     const h2 = document.createElement('h2');
     h2.textContent = name;
@@ -43,9 +43,10 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     priceElement.classList.add('price');
 
     // appending elements in a parent elements
+    article.appendChild(photographerLink);
+    article.appendChild(articleInfo);
     photographerLink.appendChild(img);
     photographerLink.appendChild(h2);
-    article.appendChild(articleInfo);
     articleInfo.appendChild(homeTown);
     articleInfo.appendChild(tagLineElement);
     articleInfo.appendChild(priceElement);
