@@ -6,6 +6,18 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 3rem;
+
+
+    img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
 }
 
 .contact_button {
