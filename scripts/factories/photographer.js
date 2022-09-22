@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable padded-blocks */
+/* eslint-disable spaced-comment */
 // factory method to create objects.
+
 function photographerFactory(data) { // eslint-disable-line no-unused-vars
-  // let name = data.name;
-  // let portrait = data.portrait;
   // Destructuring Assignment 객체구조분해
   const {
     name, portrait, id, city, country, tagline, price, title,
@@ -11,11 +13,9 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
   // data.portrait = address of the imgs
   const picture = `assets/photographers/${portrait}`;
 
-  // to create 'article' in HTML.
+  // to create 'article' in index.html
   function getUserCardDOM() {
-    // eslint-disable-next-line spaced-comment
-    /**** create tags in HTML(=createElement).
-     <article> & <a> ************************/
+    /**** <article> & <a> ************************/
     const article = document.createElement('article');
     const photographerLink = document.createElement('a');
     photographerLink.href = `photographer.html?id=${id}`;
@@ -42,7 +42,7 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     tagLineElement.classList.add('tagLine');
     priceElement.classList.add('price');
 
-    // appending elements in a parent elements
+    // appending elements in parent elements
     article.appendChild(photographerLink);
     article.appendChild(articleInfo);
     photographerLink.appendChild(img);
@@ -53,5 +53,44 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
 
     return (article);
   }
-  return { name, picture, getUserCardDOM };
+
+  // profile dom for photographer.html
+  function getUserProfileDom() {
+
+    const photographeHeader = document.querySelector('.photograph-header');
+    const profileDiv = document.createElement('div');
+    // photographeHeader.appendChild(profileDiv);
+
+    const profileName = document.createElement('h1');
+    profileName.textContent = name;
+
+    const location = document.createElement('p');
+    location.textContent = `${city}, ${country}`;
+
+    const tagLine = document.createElement('p');
+    tagLine.textContent = tagline;
+
+    // const profileBtn = document.querySelector('contact_button');
+
+    profileDiv.appendChild(profileName);
+    profileDiv.appendChild(location);
+    profileDiv.appendChild(tagLine);
+
+    const profileImg = document.createElement('img');
+    profileImg.setAttribute('src', picture);
+    profileImg.setAttribute('alt', title);
+    photographeHeader.append(profileImg);
+
+    profileName.classList.add('header__profile-wrap__name');
+    location.classList.add('header__profile-wrap__location');
+    tagLine.classList.add('header__profile-wrap__tagline');
+    profileDiv.classList.add('header__profile-wrap');
+    profileImg.classList.add('header__img');
+
+    return profileDiv;
+  }
+
+  return {
+    name, portrait, id, city, country, tagline, price, title, getUserCardDOM, getUserProfileDom,
+  };
 }
