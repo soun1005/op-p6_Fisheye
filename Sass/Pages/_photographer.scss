@@ -33,6 +33,11 @@
     cursor: pointer;
 }
 
+
+.filter-section {
+    display: flex;
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -82,3 +87,21 @@ form {
     }
 }
 
+.likeCounter {
+    box-sizing: border-box;
+    height: 4rem;
+    width: 22rem;
+    border-radius: 5px 5px 0 0;
+    padding: 21px 34px;
+    position: fixed;
+    right: 4%;
+    bottom: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DB8876;
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+}

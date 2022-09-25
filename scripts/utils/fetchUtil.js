@@ -3,6 +3,7 @@
 /**************** fetch data from Json file ****************/
 
 async function getJsonData() {
+  // default value
   let fetchedData = { photographers: [], media: [] };
   await fetch('data/photographers.json')
     .then(async (response) => {
