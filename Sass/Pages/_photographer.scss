@@ -87,6 +87,34 @@ form {
     }
 }
 
+
+.media-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem 4rem;
+    .media__wrap {
+        margin: 2rem 0;
+        img, video {
+            width: 350px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .dscr {
+            display: flex;
+            justify-content: space-between;
+            &__like-count {
+                display: flex;
+            }
+        }
+    }
+}
+
+
+
+
+
 .likeCounter {
     box-sizing: border-box;
     height: 4rem;

@@ -168,6 +168,29 @@ form input {
   border-radius: 5px;
 }
 
+.media-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2rem 4rem;
+}
+.media-container .media__wrap {
+  margin: 2rem 0;
+}
+.media-container .media__wrap img, .media-container .media__wrap video {
+  width: 350px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.media-container .media__wrap .dscr {
+  display: flex;
+  justify-content: space-between;
+}
+.media-container .media__wrap .dscr__like-count {
+  display: flex;
+}
+
 .likeCounter {
   box-sizing: border-box;
   height: 4rem;

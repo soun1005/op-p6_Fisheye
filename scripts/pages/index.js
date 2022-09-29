@@ -6,9 +6,11 @@
 /********* display photographer data inside photographer_section *********/
 async function displayData(photographers) {
   const photographersSection = document.querySelector('.photographer_section');
+  // loop for each { photographer } objects (by forEach)
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
+    // in HTML tag <section> append each elements
     photographersSection.appendChild(userCardDOM);
   });
 }

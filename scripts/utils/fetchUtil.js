@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable spaced-comment */
-/**************** fetch data from Json file ****************/
 
+/**************** fetch data from Json file ****************/
 async function getJsonData() {
   // default value
   let fetchedData = { photographers: [], media: [] };

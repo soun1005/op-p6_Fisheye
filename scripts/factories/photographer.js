@@ -70,8 +70,6 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     const tagLine = document.createElement('p');
     tagLine.textContent = tagline;
 
-    // const profileBtn = document.querySelector('contact_button');
-
     profileDiv.appendChild(profileName);
     profileDiv.appendChild(location);
     profileDiv.appendChild(tagLine);
@@ -86,6 +84,10 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     tagLine.classList.add('header__profile-wrap__tagline');
     profileDiv.classList.add('header__profile-wrap');
     profileImg.classList.add('header__img');
+
+    // user price
+    const userPrice = document.getElementById('user-price');
+    userPrice.textContent = `${price}€ / jour`;
 
     return profileDiv;
   }
