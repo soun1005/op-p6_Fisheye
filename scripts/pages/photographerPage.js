@@ -63,5 +63,6 @@ async function init() {
   displayGallery(photographerMedias);
   // from /utils/like-counter.js
   countLike(photographerMedias);
+  sortMedias();
 }
 init();

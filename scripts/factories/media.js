@@ -42,6 +42,10 @@ function mediaFactory(data) {
     likedNumber.textContent = likes;
     const iconDiv = document.createElement('div');
     iconDiv.classList.add('icon-wrap');
+    const elementDate = document.createElement('p');
+    elementDate.textContent = date;
+    elementDate.classList.add('element-date');
+    elementDate.style.display = 'none';
 
     const likeIcon = document.createElement('span');
     likeIcon.classList.add('fa-solid');
@@ -52,6 +56,7 @@ function mediaFactory(data) {
     mediaWrap.append(countLikeWrap);
     dscrWrap.append(mediaTitle);
     dscrWrap.append(countLikeWrap);
+    dscrWrap.append(elementDate);
     countLikeWrap.append(likedNumber);
     countLikeWrap.append(iconDiv);
     iconDiv.append(likeIcon);
