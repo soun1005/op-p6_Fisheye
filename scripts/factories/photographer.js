@@ -89,6 +89,10 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     const userPrice = document.getElementById('user-price');
     userPrice.textContent = `${price}€ / jour`;
 
+    // modal name display
+    const contactName = document.getElementById('contactName');
+    contactName.textContent = name;
+
     return profileDiv;
   }
 

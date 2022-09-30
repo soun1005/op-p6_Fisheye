@@ -5,7 +5,6 @@
 // /* eslint-disable no-undef */
 // /* gloabal getJsonData */
 
-
 // functions
 
 const filterElement = document.getElementById('filter');

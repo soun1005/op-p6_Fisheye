@@ -69,7 +69,8 @@ function mediaFactory(data) {
       totalCount.textContent = parseInt(totalCount.textContent, 10) + 1;
       likedNumber.textContent = parseInt(likedNumber.textContent, 10) + 1;
     }
-    likeIcon.addEventListener('click', (addLike));
+    // can click only once by { once: true}
+    likeIcon.addEventListener('click', (addLike), { once: true });
 
     return mediaWrap;
   }

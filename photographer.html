@@ -40,10 +40,9 @@
           <div class="media-container">
           </div>
           <!-- end of media gallery -->
-
         </div>
       </section>
-      <!-- End media section -->
+      <!-- End of media section -->
 
       <!-- Total likes & price -->
       <div class="likeCounter">
@@ -58,16 +57,64 @@
 
     <div id="contact_modal">
       <div class="modal">
-        <header>
-          <h2>Contactez-moi</h2>
+        <header class="modal__header">
+          <div class="modal__header__wrap">
+            <h2 id="contactMe">Contactez-moi</h2>
+            <h2 id="contactName"></h2>
+          </div>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-        <form>
-          <div>
-            <label>Prénom</label>
-            <input />
+        <form id="form">
+          <div class="formData"
+          data-error="Veuillez entrer plus de 2 alphabets. Chiffres non autorisés."
+        >
+            <label for="first">Prénom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="first"
+              name="first"
+            />
+            
           </div>
-          <button class="contact_button">Envoyer</button>
+          <!-- last name  -->
+          <div
+            class="formData"
+            data-error="Veuillez entrer plus de 2 alphabets. Chiffres non autorisés."
+          >
+            <label for="last">Nom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="last"
+              name="last"
+            />
+          </div>
+          <!-- email input -->
+          <div
+            class="formData"
+            data-error="L'adresse électronique est invalide."
+          >
+            <label for="email">E-mail</label>
+            <input
+              class="text-control"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="abc@abcd.com"
+            />
+          </div>
+          <!-- message input -->
+          <div class="formData"
+               data-error="Veuillez entrer plus de 1 alphabets.">
+               <label for="message">Votre message</label>
+               <input type="text" id="message" name="message">
+          </div>
+              <button 
+              class="contact_button" 
+              id="contact_btn"
+              >Envoyer</button>
+          </div>
         </form>
       </div>
     </div>
