@@ -116,6 +116,51 @@ form #message {
   opacity: 1;
 }
 
+/* confirm modal */
+.confirm-bg {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(252, 252, 252, 0.4);
+}
+
+.confirm-modal {
+  border-radius: 5px;
+  background-color: rgb(219, 136, 118);
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 2rem;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 12px;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  right: 25%;
+  width: 39rem;
+}
+.confirm-modal-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.confirm-modal-wrap p {
+  margin: auto;
+  font-size: 3rem;
+}
+.confirm-modal-btn {
+  font-size: 20px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -215,18 +260,21 @@ h1 {
 .media-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 2rem 4rem;
+  gap: 15px;
 }
 .media-container .media__wrap {
   margin: 2rem 0;
+  width: 350px;
 }
 .media-container .media__wrap img,
 .media-container .media__wrap video {
-  width: 350px;
-  height: 300px;
+  width: 100%;
+  height: 350px;
   -o-object-fit: cover;
      object-fit: cover;
+  cursor: pointer;
 }
 .media-container .media__wrap .dscr {
   display: flex;
@@ -238,7 +286,7 @@ h1 {
 
 .likeCounter {
   box-sizing: border-box;
-  height: 4rem;
+  height: 3.2rem;
   width: 22rem;
   border-radius: 5px 5px 0 0;
   padding: 21px 34px;

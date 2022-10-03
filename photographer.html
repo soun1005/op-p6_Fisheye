@@ -40,7 +40,6 @@
           <div class="media-container">
           </div>
           <!-- end of media gallery -->
-        </div>
       </section>
       <!-- End of media section -->
 
@@ -53,8 +52,8 @@
         <span id="user-price">300€ / jour</span>
       </div>
       <!-- End total likes & price -->
+      <!-- lightbox -->
     </main>
-
     <div id="contact_modal">
       <div class="modal">
         <header class="modal__header">
@@ -65,6 +64,7 @@
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
         <form id="form">
+          <!-- first name -->
           <div class="formData"
           data-error="Veuillez entrer plus de 2 alphabets. Chiffres non autorisés."
         >
@@ -108,7 +108,10 @@
           <div class="formData"
                data-error="Veuillez entrer plus de 1 alphabets.">
                <label for="message">Votre message</label>
-               <input type="text" id="message" name="message">
+               <input type="text" 
+                  id="message" 
+                  name="message"  
+                  class="text-control">
           </div>
               <button 
               class="contact_button" 
@@ -116,6 +119,19 @@
               >Envoyer</button>
           </div>
         </form>
+      </div>
+      <div class="confirm-bg" id="confirm-modal">
+        <div class="confirm-modal content">
+          <!-- <span class="close" id="confirm-close-icon"></span> -->
+          <div class="confirm-modal-wrap">
+            <p>
+              Message is sent!
+            </p>
+            <button class="confirm-modal-btn contact_button" id="close-confirm">
+              Fermer
+            </button>
+          </div>
+        </div>
       </div>
     </div>
     <script src="/scripts/utils/fetchUtil.js"></script>
@@ -125,5 +141,6 @@
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/utils/sort.js"></script>
     <script src="/scripts/utils/likeCounter.js"></script>
+    <script src="/scripts/utils/lightBox.js"></script>
   </body>
 </html>

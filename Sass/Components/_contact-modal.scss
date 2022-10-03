@@ -8,10 +8,7 @@
     width: 100%;
     overflow: auto;
     background-color: rgba(252, 252, 252, 0.4);
-
 }
-
-
 
 .contact_button {
     font-size: 20px;
@@ -25,8 +22,6 @@
     border-radius: 5px;
     cursor: pointer;
 }
-
-
 
 .modal {
     border-radius: 5px;
@@ -51,12 +46,10 @@
         & img {
             cursor: pointer;
         }
-
         & h2 {
             font-size: 64px;
             font-weight: normal;
             margin-bottom: 5px;
-
         }
 
         #contactMe {
@@ -120,3 +113,50 @@ form {
 .formData[data-error-visible="true"]::after {
     opacity: 1;
 }
+
+
+/* confirm modal */
+.confirm-bg {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(252, 252, 252, 0.4);
+  }
+
+  .confirm-modal {
+    border-radius: 5px;
+    background-color: rgb(219, 136, 118);
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 2rem;
+    margin: auto;
+    box-shadow: rgb(0 0 0 / 25%) 0px 4px 12px;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    right: 25%;
+    width: 39rem;
+
+    &-wrap {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        p {
+            margin: auto;
+            font-size: 3rem;
+        }
+    }
+    &-btn {
+        font-size: 20px;
+        margin: 0 auto;
+        margin-top: 2rem;
+        cursor: pointer;
+    }
+  }

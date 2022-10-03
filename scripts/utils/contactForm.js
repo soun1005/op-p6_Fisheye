@@ -7,16 +7,23 @@ REGEX
 ******/
 const mailRegex = /^[a-zA-Z][a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}$/;
 const nameRegex = /[a-zA-Z]+/i;
+const modal = document.getElementById('contact_modal');
+const confirmModal = document.querySelector('.confirm-bg');
+const confirmModalText = document.querySelector('.confirm-modal');
+const inputField = document.querySelectorAll('.text-control');
+const contactModal = document.getElementById('contact_modal');
 
 // open & close modal
 function displayModal() {
-  const modal = document.getElementById('contact_modal');
   modal.style.display = 'block';
 }
 
 function closeModal() {
-  const modal = document.getElementById('contact_modal');
   modal.style.display = 'none';
+}
+
+function closeConfirm() {
+  confirmModal.style.display = 'none';
 }
 
 // input control
@@ -81,8 +88,32 @@ const messageValidation = () => {
   }
 };
 
+// 4. Console input values
+
+const consoleValue = () => {
+  const inputText = document.querySelectorAll('.text-control');
+  inputText.forEach((input) => {
+    console.log(input.value);
+  });
+};
+
+// 5. Confirm Modal
+
+const confirmModalOn = () => {
+  // when the validation failed
+  const errorsVisible = document.querySelectorAll('[data-error-visible="true"]');
+  // when error message is 0, open confirm modal.
+  const noError = errorsVisible.length === 0;
+  if (noError) {
+    confirmModal.style.display = 'block';
+    confirmModalText.style.display = 'block';
+    closeModal();
+    // reset modal when everything is validated.
+  }
+};
+
 /************************************
-4. Submit button.
+6. Submit button.
 All validation functions combined.
 When submit btn is clicked -> validate all inputs.
 ************************************/
@@ -93,4 +124,9 @@ send.addEventListener('submit', (e) => {
   lastNameValidation();
   emailValidation();
   messageValidation();
+  consoleValue();
+  confirmModalOn();
 });
+
+const confirmBtn = document.getElementById('close-confirm');
+confirmBtn.addEventListener('click', closeConfirm);
