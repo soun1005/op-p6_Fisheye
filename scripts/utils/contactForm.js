@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-unused-vars */
 /* eslint-disable spaced-comment */
@@ -98,17 +99,19 @@ const consoleValue = () => {
 };
 
 // 5. Confirm Modal
-
-const confirmModalOn = () => {
+const confirmModalOn = (e) => {
   // when the validation failed
   const errorsVisible = document.querySelectorAll('[data-error-visible="true"]');
   // when error message is 0, open confirm modal.
   const noError = errorsVisible.length === 0;
+  const form = document.getElementById('form');
   if (noError) {
     confirmModal.style.display = 'block';
     confirmModalText.style.display = 'block';
     closeModal();
     // reset modal when everything is validated.
+
+    form.reset();
   }
 };
 

@@ -41,13 +41,13 @@
     & header {
         justify-content: space-between;
         width: 100%;
-        margin-bottom: 5rem;
+        margin-bottom: 2.5rem;
 
         & img {
             cursor: pointer;
         }
         & h2 {
-            font-size: 64px;
+            font-size: 50px;
             font-weight: normal;
             margin-bottom: 5px;
         }
@@ -60,7 +60,7 @@
     input {
         font-size: 2rem;
         width: 100%;
-        height: 68px;
+        height: 55px;
         border: none;
         border-radius: 5px;
     }
@@ -74,7 +74,7 @@ form {
 
     & label {
         color: #312E2E;
-        font-size: 36px;
+        font-size: 32px;
     }
 
     & div {
@@ -87,13 +87,13 @@ form {
 
     & input {
         width: 100%;
-        height: 68px;
+        height: 48px;
         border: none;
         border-radius: 5px;
     }
 
     #message {
-        height: 200px;
+        height: 110px;
     }
 }
 

@@ -37,12 +37,11 @@
           </div>
           </div>
           <!-- media gallery -->
-          <div class="media-container">
+          <div class="media-container" id="media-container" >
           </div>
           <!-- end of media gallery -->
       </section>
       <!-- End of media section -->
-
       <!-- Total likes & price -->
       <div class="likeCounter">
         <div class="likes">
@@ -53,6 +52,21 @@
       </div>
       <!-- End total likes & price -->
       <!-- lightbox -->
+      <div class="lightbox">
+        <div class="lightbox__container">
+          <button class="close-btn">
+            <span class="arrow cross-arrow-left"></span>
+            <span class="arrow cross-arrow-right"></span>
+          </button>
+          <div class="lightbox__content" >
+            <a class="arrow arrow-left slide-btn"></a>
+            <figure class="lightbox__img" >
+            </figure>
+            <a class="arrow arrow-right slide-btn"></a>
+          </div>
+       
+        </div>
+      </div>
     </main>
     <div id="contact_modal">
       <div class="modal">
@@ -142,5 +156,6 @@
     <script src="/scripts/utils/sort.js"></script>
     <script src="/scripts/utils/likeCounter.js"></script>
     <script src="/scripts/utils/lightBox.js"></script>
+
   </body>
 </html>

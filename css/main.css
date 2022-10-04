@@ -51,13 +51,13 @@ h1, h2, h3, p {
 .modal header {
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
 }
 .modal header img {
   cursor: pointer;
 }
 .modal header h2 {
-  font-size: 64px;
+  font-size: 50px;
   font-weight: normal;
   margin-bottom: 5px;
 }
@@ -67,7 +67,7 @@ h1, h2, h3, p {
 .modal input {
   font-size: 2rem;
   width: 100%;
-  height: 68px;
+  height: 55px;
   border: none;
   border-radius: 5px;
 }
@@ -80,7 +80,7 @@ form {
 }
 form label {
   color: #312E2E;
-  font-size: 36px;
+  font-size: 32px;
 }
 form div {
   display: flex;
@@ -91,12 +91,12 @@ form div {
 }
 form input {
   width: 100%;
-  height: 68px;
+  height: 48px;
   border: none;
   border-radius: 5px;
 }
 form #message {
-  height: 200px;
+  height: 110px;
 }
 
 /* error message */
@@ -159,6 +159,78 @@ form #message {
   margin: 0 auto;
   margin-top: 2rem;
   cursor: pointer;
+}
+
+.lightbox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  display: none;
+}
+.lightbox figcaption {
+  color: #901C1C;
+  font-size: 20px;
+  background-color: #fff;
+  padding: 10px;
+  margin-top: -5px;
+  border-radius: 0 0 5px 5px;
+}
+.lightbox__container {
+  height: 40rem;
+  margin: auto;
+  position: relative;
+}
+.lightbox__container img, .lightbox__container video {
+  max-width: 650px;
+  max-height: 600px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.lightbox__container .arrow {
+  width: 20px;
+  height: 20px;
+  border-style: solid none none solid;
+  border-width: 6px;
+  color: #901C1C;
+}
+.lightbox__container .cross-arrow-left {
+  transform: rotate(135deg);
+}
+.lightbox__container .cross-arrow-right {
+  transform: rotate(-45deg);
+}
+.lightbox__container .close-btn:hover, .lightbox__container .close_button:focus {
+  transform: scale(1.1);
+}
+.lightbox__container button {
+  cursor: pointer;
+  border: none;
+}
+.lightbox__container .close-btn {
+  position: absolute;
+  right: -30px;
+  color: #901C1C;
+  padding: 12px;
+  background-color: transparent;
+  display: flex;
+  gap: 3px;
+}
+.lightbox__content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+}
+.lightbox__content .arrow-right {
+  transform: rotate(135deg);
+}
+.lightbox__content .arrow-left {
+  transform: rotate(-45deg);
 }
 
 header {

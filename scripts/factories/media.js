@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable padded-blocks */
@@ -15,7 +16,6 @@ function mediaFactory(data) {
   function getMediaDom(media) {
     const mediaWrap = document.createElement('div');
     mediaWrap.classList.add('media__wrap');
-
     // if there is image, add <img> or <video>
     if (image) {
       const imageTag = document.createElement('img');
@@ -64,13 +64,53 @@ function mediaFactory(data) {
     // like button
     likeIcon.style.cursor = 'pointer';
     function addLike() {
-      // fix : can click 'like' only once for medias
       const totalCount = document.getElementById('likes-total');
       totalCount.textContent = parseInt(totalCount.textContent, 10) + 1;
       likedNumber.textContent = parseInt(likedNumber.textContent, 10) + 1;
     }
     // can click only once by { once: true}
     likeIcon.addEventListener('click', (addLike), { once: true });
+
+    // open lightbox
+    const lightBox = document.querySelector('.lightbox');
+    const lbImgTag = document.createElement('img');
+    const lbVideoTag = document.createElement('video');
+    const lbFigure = document.querySelector('.lightbox__img');
+
+    // when media is clicked runs function openLb
+    function openLb() {
+      lightBox.style.display = 'flex';
+      let child = lbFigure.firstElementChild;
+      while (child) {
+        lbFigure.removeChild(child);
+        child = lbFigure.firstElementChild;
+      }
+      // if the element is img,
+      if (image) {
+        lbFigure.append(lbImgTag);
+        lbImgTag.setAttribute('src', picture);
+        lbImgTag.setAttribute('alt', title);
+      // when the element is video
+      } else {
+        lbFigure.append(lbVideoTag);
+        lbVideoTag.setAttribute('src', videoSrc);
+        lbVideoTag.setAttribute('controls', 'true');
+        lbVideoTag.setAttribute('autoplay', 'true');
+      }
+      // media description
+      const figCaption = document.createElement('figcaption');
+      figCaption.textContent = title;
+      lbFigure.append(figCaption);
+    }
+    // when media element is clicked
+    mediaWrap.addEventListener('click', (openLb));
+
+    // 1. get array of medias
+    
+
+
+
+
 
     return mediaWrap;
   }
