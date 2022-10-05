@@ -6,7 +6,6 @@
 // /* gloabal getJsonData */
 
 // functions
-
 const filterElement = document.getElementById('filter');
 
 /************ function that goes inside sort**********/

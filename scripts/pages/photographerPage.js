@@ -38,8 +38,8 @@ function getMediaByPhotographerId(id, media) {
 function displayGallery(medias) {
   const mediaContainer = document.querySelector('.media-container');
 
-  medias.forEach((media) => {
-    const makeGallery = mediaFactory(media);
+  medias.forEach((media, index) => {
+    const makeGallery = mediaFactory(media, index);
     const photoGallry = makeGallery.getMediaDom();
     mediaContainer.append(photoGallry);
   });

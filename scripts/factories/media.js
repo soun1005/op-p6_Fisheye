@@ -4,7 +4,7 @@
 /* eslint-disable padded-blocks */
 /* eslint-disable spaced-comment */
 
-function mediaFactory(data) {
+function mediaFactory(data, index) {
   const {
     photographerId, title, image, likes, date, price, video,
   } = data;
@@ -13,7 +13,7 @@ function mediaFactory(data) {
   const videoSrc = `assets/images/${photographerId}/${video}`;
 
   // to display medias
-  function getMediaDom(media) {
+  function getMediaDom() {
     const mediaWrap = document.createElement('div');
     mediaWrap.classList.add('media__wrap');
     // if there is image, add <img> or <video>
@@ -85,35 +85,33 @@ function mediaFactory(data) {
         lbFigure.removeChild(child);
         child = lbFigure.firstElementChild;
       }
+      lbFigure.setAttribute('id', index);
       // if the element is img,
       if (image) {
         lbFigure.append(lbImgTag);
         lbImgTag.setAttribute('src', picture);
         lbImgTag.setAttribute('alt', title);
+        lbImgTag.classList.add('lightbox__current-element');
       // when the element is video
       } else {
         lbFigure.append(lbVideoTag);
         lbVideoTag.setAttribute('src', videoSrc);
         lbVideoTag.setAttribute('controls', 'true');
         lbVideoTag.setAttribute('autoplay', 'true');
+        lbVideoTag.classList.add('lightbox__current-element');
       }
       // media description
       const figCaption = document.createElement('figcaption');
       figCaption.textContent = title;
+      figCaption.classList.add('lightbox__dscr');
       lbFigure.append(figCaption);
     }
     // when media element is clicked
     mediaWrap.addEventListener('click', (openLb));
 
-    // 1. get array of medias
-    
-
-
-
-
-
     return mediaWrap;
   }
+
   return {
     photographerId, title, image, likes, date, price, video, getMediaDom,
   };
