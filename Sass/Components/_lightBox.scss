@@ -1,5 +1,3 @@
-
-
 .lightbox {
     position: fixed;
     width: 100%;
@@ -35,17 +33,18 @@
             border-style: solid none none solid;
             border-width: 6px;
             color: $c-main;
+            cursor: pointer;
         }
         .cross-arrow-left {
             transform: rotate(135deg);
-          }
-         .cross-arrow-right {
+        }
+        .cross-arrow-right {
             transform: rotate(-45deg);
-          }
-          .close-btn:hover, .close_button:focus {
+        }
+        .close-btn:hover, .close_button:focus {
             transform: scale(1.1);
-          }
-          button {
+        }
+        button {
             cursor: pointer;
             border: none;
         }
@@ -57,11 +56,10 @@
             background-color: transparent;
             display: flex;
             gap: 3px;
-          }
+        }
     }
 
    
-
     &__content {
         display: flex;
         align-items: center;

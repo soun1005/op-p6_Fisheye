@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const lightBox = document.querySelector('.lightbox');
 const lbCloseBtn = document.querySelector('.close-btn');
 
@@ -13,19 +14,16 @@ lbCloseBtn.style.cursor = 'pointer';
 const arrowBtns = document.querySelectorAll('.slide-btn');
 
 // when arrows are clicked,
-
-
 function gallerySwitch(direction) {
   // image, figcaption
   const lightboxContainer = document.querySelector('.lightbox__img');
-
   // gallery div (media, title, heart icon)
   const galleryMedias = document.querySelectorAll('.media__wrap');
-
+  // length of medias
+  // console.log(galleryMedias.length);
   // id of each media
   const lightboxId = parseInt(lightboxContainer.getAttribute('id'), 10);
-
-  // remove lightbox img src, lightbox dscr contents 
+  // remove lightbox img src, lightbox dscr contents
   const lightboxDscr = document.querySelector('.lightbox__dscr');
   const nextMedia = galleryMedias[lightboxId + direction];
 
@@ -34,12 +32,12 @@ function gallerySwitch(direction) {
   const lightboxElement = document.querySelector('.lightbox__current-element');
   lightboxContainer.removeChild(lightboxElement);
 
+  // selecting only images and video in the gallery div
   let image = nextMedia.querySelector('img');
   let video = nextMedia.querySelector('video');
-  console.log('image', image);
-  console.log('video', video);
 
   if (image) {
+    // copy image
     image = image.cloneNode();
     lightboxContainer.prepend(image);
     image.classList.add('lightbox__current-element');
@@ -55,5 +53,32 @@ function gallerySwitch(direction) {
   lightboxContainer.setAttribute('id', lightboxId + direction);
 }
 
-arrowBtns[0].addEventListener('click', () => gallerySwitch(-1));
-arrowBtns[1].addEventListener('click', () => gallerySwitch(1));
+function getLbInfo() {
+  const lightboxContainer = document.querySelector('.lightbox__img');
+  // gallery div (media, title, heart icon)
+  const galleryMedias = document.querySelectorAll('.media__wrap');
+  // id of each media
+  const lightboxId = parseInt(lightboxContainer.getAttribute('id'), 10);
+  const mediaLength = galleryMedias.length - 1;
+
+  return { lightboxId, mediaLength };
+}
+
+arrowBtns[0].addEventListener('click', () => {
+  const { lightboxId, mediaLength } = getLbInfo();
+  // when element's id is 0, next element id is same as the length of the medias
+  if (lightboxId === 0) {
+    gallerySwitch(mediaLength);
+  } else {
+    gallerySwitch(-1);
+  }
+});
+
+arrowBtns[1].addEventListener('click', () => {
+  const { lightboxId, mediaLength } = getLbInfo();
+  if (lightboxId === mediaLength) {
+    gallerySwitch(-mediaLength);
+  } else {
+    gallerySwitch(1);
+  }
+});

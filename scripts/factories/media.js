@@ -21,11 +21,14 @@ function mediaFactory(data, index) {
       const imageTag = document.createElement('img');
       imageTag.setAttribute('src', picture);
       imageTag.setAttribute('alt', title);
+      imageTag.classList.add('gallery-media');
       mediaWrap.append(imageTag);
     } else {
       const videoTag = document.createElement('video');
       videoTag.setAttribute('src', videoSrc);
+      videoTag.classList.add('gallery-media');
       mediaWrap.append(videoTag);
+
     }
 
     const dscrWrap = document.createElement('div');
@@ -107,7 +110,7 @@ function mediaFactory(data, index) {
       lbFigure.append(figCaption);
     }
     // when media element is clicked
-    mediaWrap.addEventListener('click', (openLb));
+    mediaWrap.childNodes[0].addEventListener('click', (openLb));
 
     return mediaWrap;
   }

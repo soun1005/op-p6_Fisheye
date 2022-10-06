@@ -197,6 +197,7 @@ form #message {
   border-style: solid none none solid;
   border-width: 6px;
   color: #901C1C;
+  cursor: pointer;
 }
 .lightbox__container .cross-arrow-left {
   transform: rotate(135deg);
