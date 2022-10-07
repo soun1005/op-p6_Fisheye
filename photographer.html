@@ -13,7 +13,9 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="/index.html">      
+        <img src="assets/images/logo.png" class="logo" />
+      </a>
     </header>
 
     <main id="main">
@@ -26,16 +28,25 @@
       <section class="photographer-media">
         <!-- filter -->
 
-        <div class="filter-section">
+        <div class="filter" id="filter">
           <p>Trier par</p>
-          <div class="custom-select">
-                <select name="filters" id="filter">
-                  <option value="Popularite">Popularite</option>
-                  <option value="Date">Date</option>
-                  <option value="Titre">Titre</option>
-            </select> 
+          <div class="filter__wrap">
+            <div class="filter__wrap__main-btn">
+              <button class="filter-main-btn">Popularité</button>
+              <span class="fa-sharp fa-solid fa-chevron-right fa-downside"></span>
+            </div>
+            <nav>
+              <ul class="filter-list">
+                <li class="filter-list-main-btn">
+                  <button class="filter-list-btn filter-list-popular">Popularité</button>
+                  <span class="fa-sharp fa-solid fa-chevron-right fa-upside"></span>
+                </li>
+                <li><button class="filter-list-btn filter-list-date">Date</button></li>
+                <li><button class="filter-list-btn filter-list-title">Titre</button></li>
+              </ul>
+            </nav>
           </div>
-          </div>
+        </div>
           <!-- media gallery -->
           <div class="media-container" id="media-container" >
           </div>

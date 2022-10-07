@@ -1,0 +1,112 @@
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+.filter {
+    display: flex;
+    margin-top: 1.5rem;
+    margin-left: 5rem;
+    align-items: center;
+    &__wrap{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        &__main-btn {
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-right: 2rem;
+            margin-left: 2rem;
+        }
+    }
+
+    &-main-btn {
+        background: #901C1C;
+        color: #FFFFFF;
+        border: 10px solid #901C1C;
+        font-size: 20px;
+        width: 170px;
+        border-radius: 5px;
+        // appearance: none;
+        // background-repeat: no-repeat;
+        // background-position: 95%;
+        padding-right: 3rem;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        cursor: pointer;
+    }
+
+    &-list {
+        display: none;
+    }
+    &-list-btn {
+        margin: 0;
+        padding: 0;
+        background: #901C1C;
+        color: #FFFFFF;
+        border: 10px solid #901C1C;
+        font-size: 20px;
+        width: 170px;
+        margin-left: 2rem;
+        text-align: left;
+        padding-left: 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        cursor: pointer;
+    }
+    &-list-main-btn {
+        display: flex;
+        align-items: center;
+    }
+    &-list-popular {
+        padding-right: 2rem;
+        border-radius: 5px 5px 0 0;
+    }
+
+    &-list-date {
+        // border-top: 1px solid #FFFFFF;
+        // border-bottom: 1px solid #FFFFFF;
+        padding: 1rem 0 1rem 10px;
+        &::after {
+            border: 2px solid white;
+        }
+    }
+
+
+
+    &-list-title {
+        border-radius: 0 0 5px 5px;
+    }
+  }
+  /* when the main button is clicked add active class */
+    .filter-list.active {
+        display: block;
+        position: absolute;
+        top: 0;
+        }
+    .fa-downside {
+        font-size: 19px;
+        position: absolute;
+        left: 67%;
+        color: white;
+        transform: rotate(90deg);
+        }
+    .fa-upside {
+        font-size: 19px;
+        position: absolute;
+        left: 82%;
+        color: white;
+        transform: rotate(270deg);
+     }
+
+ 
+    
+  
+
+
+
+
