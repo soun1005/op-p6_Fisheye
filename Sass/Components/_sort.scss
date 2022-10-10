@@ -10,6 +10,11 @@ ul, li {
     margin-top: 1.5rem;
     margin-left: 5rem;
     align-items: center;
+    p {
+        font-size: 18px;
+        font-weight: 900;
+    }
+
     &__wrap{
         position: relative;
         display: flex;
@@ -20,14 +25,14 @@ ul, li {
             display: flex;
             align-items: center;
             padding-right: 2rem;
-            margin-left: 2rem;
+            margin-left: 1rem;
         }
     }
 
     &-main-btn {
-        background: #901C1C;
+        background: $c-main;
         color: #FFFFFF;
-        border: 10px solid #901C1C;
+        border: 10px solid $c-main;
         font-size: 20px;
         width: 170px;
         border-radius: 5px;
@@ -41,77 +46,56 @@ ul, li {
     &-list {
         display: none;
     }
+    li span {
+        display: block;
+        border-top: 1px solid white;
+        width: 88%;
+        line-height: 64px;
+    }
     &-list-btn {
         margin: 0;
         padding: 0;
-        background: #901C1C;
+        background: $c-main;
         color: #FFFFFF;
-        border: 10px solid #901C1C;
+        border: 1px solid $c-main;
         font-size: 20px;
         width: 170px;
-        margin-left: 2rem;
+        margin-left: 1rem;
         text-align: left;
-        padding-left: 10px;
-        padding-top: 8px;
-        padding-bottom: 8px;
+        padding-left: 18px;
+        // padding-top: 8px;
+        // padding-bottom: 8px;
         cursor: pointer;
     }
     &-list-main-btn {
         display: flex;
         align-items: center;
     }
-    &-list-popular {
-        padding-right: 2rem;
-    }
-
-    &-list-date {
-        // border-top: 1px solid #FFFFFF;
-        // border-bottom: 1px solid #FFFFFF;
-        padding: 1rem 0 1rem 10px;
-        &::after {
-            border: 2px solid white;
-        }
-    }
+   
   }
-  /* when the main button is clicked add active class */
-    .filter-list.active {
-        display: block;
-        position: absolute;
-        z-index: 1000;
-        }
-
-    .filter-main-btn.active {
-        border-radius: 5px 5px 0 0;
+/* when the main button is clicked add active class */
+.filter-list.active {
+    display: block;
+    position: absolute;
+    z-index: 1000;
     }
 
-    .filter-list-btn.active {
-        border-radius: 0 0 5px 5px;
+.filter-main-btn.active {
+    border-radius: 5px 5px 0 0;
+}
+
+.filter-list-btn.active {
+    border-radius: 0 0 5px 5px;
+}
+
+.fa-downside.active {
+    transform: rotate(270deg);
+}
+
+.fa-downside {
+    font-size: 19px;
+    position: absolute;
+    left: 67%;
+    color: white;
+    transform: rotate(90deg);
     }
-    
-    .fa-downside.active {
-        transform: rotate(270deg);
-    }
-
-
-    .fa-downside {
-        font-size: 19px;
-        position: absolute;
-        left: 67%;
-        color: white;
-        transform: rotate(90deg);
-        }
-    // .fa-upside {
-    //     font-size: 19px;
-    //     position: absolute;
-    //     left: 82%;
-    //     color: white;
-    //     transform: rotate(270deg);
-    //  }
-
- 
-    
-  
-
-
-
-

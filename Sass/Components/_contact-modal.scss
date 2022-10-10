@@ -21,6 +21,12 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 6rem;
+    &:hover, &:active {
+        background-color: $c-sub-bg;
+        color: #000;
+    }
+
 }
 
 .modal {

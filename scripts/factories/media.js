@@ -22,11 +22,13 @@ function mediaFactory(data, index) {
       imageTag.setAttribute('src', picture);
       imageTag.setAttribute('alt', title);
       imageTag.classList.add('gallery-media');
+      imageTag.tabIndex = (index + 8);
       mediaWrap.append(imageTag);
     } else {
       const videoTag = document.createElement('video');
       videoTag.setAttribute('src', videoSrc);
       videoTag.classList.add('gallery-media');
+      videoTag.tabIndex = (index + 8);
       mediaWrap.append(videoTag);
 
     }

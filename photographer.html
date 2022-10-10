@@ -14,13 +14,13 @@
   <body>
     <header>
       <a href="/index.html">      
-        <img src="assets/images/logo.png" class="logo" alt="logo"/>
+        <img src="assets/images/logo.png" class="logo" alt="logo"  tabindex="0"/>
       </a>
     </header>
 
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">
+        <button class="contact_button" onclick="displayModal()" tabindex="4" aria-label="Contact Me">
           Contactez-moi
         </button>
       </div>
@@ -28,18 +28,18 @@
       <section class="photographer-media">
         <!-- filter -->
 
-        <div class="filter" id="filter">
+        <div class="filter" id="filter" tabindex="6">
           <p>Trier par</p>
           <div class="filter__wrap">
             <div class="filter__wrap__main-btn">
-              <button class="filter-main-btn">Popularite</button>
+              <button class="filter-main-btn" tabindex="7">Popularité</button>
               <span class="fa-sharp fa-solid fa-chevron-right fa-downside"></span>
             </div>
             <nav>
               <ul class="filter-list">
-                <li class="filter-list-main-btn"><button class="filter-list-btn filter-list-popular">Popularite</button></li>
-                <li><button class="filter-list-btn filter-list-date">Date</button></li>
-                <li><button class="filter-list-btn filter-list-title">Titre</button></li>
+                <li class="filter-list-main-btn"><button class="filter-list-btn filter-list-popular"><span>Popularité</span></button></li>
+                <li><button class="filter-list-btn filter-list-date"><span>Date</span></button></li>
+                <li><button class="filter-list-btn filter-list-title"><span>Titre</span></button></li>
               </ul>
             </nav>
           </div>

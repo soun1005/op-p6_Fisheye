@@ -16,12 +16,9 @@
     }
 }
 
-
 .filter-section {
     display: flex;
 }
-
-
 
 .media-container {
     display: flex;
@@ -40,14 +37,25 @@
             height: 350px;
             object-fit: cover;
             cursor: pointer;
+            border-radius: 5px;
         }
 
         .dscr {
             display: flex;
             justify-content: space-between;
-
+            margin-top: 6px;
+            p, span {
+                font-size: 20px;
+                color: $c-main;
+            }
             &__like-count {
                 display: flex;
+                .liked-number {
+                    margin-right: 4px;
+                }
+                .icon-wrap {
+                    margin: auto;
+                }
             }
         }
     }

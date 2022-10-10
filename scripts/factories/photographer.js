@@ -14,15 +14,20 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
   const picture = `assets/photographers/${portrait}`;
 
   // to create 'article' in index.html
-  function getUserCardDOM() {
+  function getUserCardDOM(cardNum) {
     /**** <article> & <a> ************************/
     const article = document.createElement('article');
     const photographerLink = document.createElement('a');
     photographerLink.href = `photographer.html?id=${id}`;
+    // accessibility
+    photographerLink.setAttribute('role', 'link');
+    // photographerLink.setAttribute('tabindex', '3');
+    photographerLink.tabIndex = (cardNum + 3);
     // <img>
     const img = document.createElement('img');
     img.setAttribute('src', picture);
-    img.setAttribute('alt', title);
+    img.setAttribute('alt', '');
+
     // <h2>
     const h2 = document.createElement('h2');
     h2.textContent = name;
@@ -35,6 +40,8 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     homeTown.textContent = `${city}, ${country}`;
     tagLineElement.textContent = tagline;
     priceElement.textContent = `${price}€ / jour`;
+    articleInfo.tabIndex = (cardNum + 4);
+    // articleInfo.setAttribute('tabindex', '4');
 
     // class names added in HTML
     articleInfo.classList.add('info');
@@ -55,11 +62,11 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
   }
 
   // profile dom for photographer.html
-  function getUserProfileDom() {
+  function getUserProfileDom(cardNum) {
 
     const photographeHeader = document.querySelector('.photograph-header');
     const profileDiv = document.createElement('div');
-    // photographeHeader.appendChild(profileDiv);
+    photographeHeader.prepend(profileDiv);
 
     const profileName = document.createElement('h1');
     profileName.textContent = name;
@@ -76,22 +83,29 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
 
     const profileImg = document.createElement('img');
     profileImg.setAttribute('src', picture);
-    profileImg.setAttribute('alt', title);
+    profileImg.setAttribute('alt', name);
     photographeHeader.append(profileImg);
 
     profileName.classList.add('header__profile-wrap__name');
+    profileName.tabIndex = '1';
     location.classList.add('header__profile-wrap__location');
+    location.tabIndex = '2';
     tagLine.classList.add('header__profile-wrap__tagline');
+    tagLine.tabIndex = '3';
     profileDiv.classList.add('header__profile-wrap');
     profileImg.classList.add('header__img');
+    profileImg.tabIndex = '5';
+    // profileImg.setAttribute('aria-label', 'photo');
 
     // user price
     const userPrice = document.getElementById('user-price');
     userPrice.textContent = `${price}€ / jour`;
 
     // modal name display
-    const contactName = document.getElementById('contactName');
+    const modalHeaderWrap = document.querySelector('.modal__header__wrap');
+    const contactName = document.createElement('h2');
     contactName.textContent = name;
+    modalHeaderWrap.append(contactName);
 
     return profileDiv;
   }
