@@ -31,13 +31,11 @@ ul, li {
         font-size: 20px;
         width: 170px;
         border-radius: 5px;
-        // appearance: none;
-        // background-repeat: no-repeat;
-        // background-position: 95%;
-        padding-right: 3rem;
+        padding-left: 10px;
         padding-top: 8px;
         padding-bottom: 8px;
         cursor: pointer;
+        text-align: left;
     }
 
     &-list {
@@ -64,7 +62,6 @@ ul, li {
     }
     &-list-popular {
         padding-right: 2rem;
-        border-radius: 5px 5px 0 0;
     }
 
     &-list-date {
@@ -75,19 +72,27 @@ ul, li {
             border: 2px solid white;
         }
     }
-
-
-
-    &-list-title {
-        border-radius: 0 0 5px 5px;
-    }
   }
   /* when the main button is clicked add active class */
     .filter-list.active {
         display: block;
         position: absolute;
-        top: 0;
+        z-index: 1000;
         }
+
+    .filter-main-btn.active {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .filter-list-btn.active {
+        border-radius: 0 0 5px 5px;
+    }
+    
+    .fa-downside.active {
+        transform: rotate(270deg);
+    }
+
+
     .fa-downside {
         font-size: 19px;
         position: absolute;
@@ -95,13 +100,13 @@ ul, li {
         color: white;
         transform: rotate(90deg);
         }
-    .fa-upside {
-        font-size: 19px;
-        position: absolute;
-        left: 82%;
-        color: white;
-        transform: rotate(270deg);
-     }
+    // .fa-upside {
+    //     font-size: 19px;
+    //     position: absolute;
+    //     left: 82%;
+    //     color: white;
+    //     transform: rotate(270deg);
+    //  }
 
  
     

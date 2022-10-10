@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link rel="stylesheet" href="./css/main.css" />
     <meta charset="utf-8" />
@@ -14,7 +14,7 @@
   <body>
     <header>
       <a href="/index.html">      
-        <img src="assets/images/logo.png" class="logo" />
+        <img src="assets/images/logo.png" class="logo" alt="logo"/>
       </a>
     </header>
 
@@ -32,15 +32,12 @@
           <p>Trier par</p>
           <div class="filter__wrap">
             <div class="filter__wrap__main-btn">
-              <button class="filter-main-btn">Popularité</button>
+              <button class="filter-main-btn">Popularite</button>
               <span class="fa-sharp fa-solid fa-chevron-right fa-downside"></span>
             </div>
             <nav>
               <ul class="filter-list">
-                <li class="filter-list-main-btn">
-                  <button class="filter-list-btn filter-list-popular">Popularité</button>
-                  <span class="fa-sharp fa-solid fa-chevron-right fa-upside"></span>
-                </li>
+                <li class="filter-list-main-btn"><button class="filter-list-btn filter-list-popular">Popularite</button></li>
                 <li><button class="filter-list-btn filter-list-date">Date</button></li>
                 <li><button class="filter-list-btn filter-list-title">Titre</button></li>
               </ul>
@@ -84,9 +81,8 @@
         <header class="modal__header">
           <div class="modal__header__wrap">
             <h2 id="contactMe">Contactez-moi</h2>
-            <h2 id="contactName"></h2>
           </div>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" alt="close" onclick="closeModal()" />
         </header>
         <form id="form">
           <!-- first name -->

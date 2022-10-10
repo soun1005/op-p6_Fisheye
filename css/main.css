@@ -40,10 +40,11 @@ ul, li {
   font-size: 20px;
   width: 170px;
   border-radius: 5px;
-  padding-right: 3rem;
+  padding-left: 10px;
   padding-top: 8px;
   padding-bottom: 8px;
   cursor: pointer;
+  text-align: left;
 }
 .filter-list {
   display: none;
@@ -69,7 +70,6 @@ ul, li {
 }
 .filter-list-popular {
   padding-right: 2rem;
-  border-radius: 5px 5px 0 0;
 }
 .filter-list-date {
   padding: 1rem 0 1rem 10px;
@@ -77,15 +77,24 @@ ul, li {
 .filter-list-date::after {
   border: 2px solid white;
 }
-.filter-list-title {
-  border-radius: 0 0 5px 5px;
-}
 
 /* when the main button is clicked add active class */
 .filter-list.active {
   display: block;
   position: absolute;
-  top: 0;
+  z-index: 1000;
+}
+
+.filter-main-btn.active {
+  border-radius: 5px 5px 0 0;
+}
+
+.filter-list-btn.active {
+  border-radius: 0 0 5px 5px;
+}
+
+.fa-downside.active {
+  transform: rotate(270deg);
 }
 
 .fa-downside {
@@ -94,14 +103,6 @@ ul, li {
   left: 67%;
   color: white;
   transform: rotate(90deg);
-}
-
-.fa-upside {
-  font-size: 19px;
-  position: absolute;
-  left: 82%;
-  color: white;
-  transform: rotate(270deg);
 }
 
 #contact_modal {

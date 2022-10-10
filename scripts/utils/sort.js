@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 /* eslint-disable spaced-comment */
 // /* eslint-disable no-unused-vars */
@@ -9,6 +10,7 @@ const listBtnPopular = document.querySelector('.filter-list-popular');
 const listBtnDate = document.querySelector('.filter-list-date');
 const listBtnTitle = document.querySelector('.filter-list-title');
 const filterList = document.querySelector('.filter-list');
+const arrow = document.querySelector('.fa-downside');
 
 // media divs into array
 function intoArray() {
@@ -20,11 +22,41 @@ function intoArray() {
 
 // open nav list
 filterMainBtn.addEventListener('click', () => {
-  filterList.classList.add('active');
+  const listElements = document.querySelectorAll('li');
+  const buttonCurrentValue = document.querySelector('.filter-main-btn');
+  const list = document.querySelector('.filter-list');
+  // each buttons inside <li>
+  listElements.forEach((elem) => {
+    // if list match the main button, display none
+    if (elem.innerText === buttonCurrentValue.innerText) {
+      elem.style.display = 'none';
+    } else {
+      elem.style.display = 'block';
+      elem.addEventListener('click', () => {
+        buttonCurrentValue.innerText = elem.innerText;
+        filterList.classList.remove('active');
+        buttonCurrentValue.classList.remove('active');
+      });
+    }
+  });
+
+  // list.style.display = currentDisplay === 'none' ? 'block' : 'none';
+  if (!list.classList.contains('active')) {
+    filterList.classList.add('active');
+    buttonCurrentValue.classList.add('active');
+    arrow.classList.add('active');
+  } else {
+    filterList.classList.remove('active');
+    buttonCurrentValue.classList.remove('active');
+    arrow.classList.remove('active');
+  }
+  // last button border-radius
+  const displayedBtn = list.style.display;
 });
 
 //  when 'popularity' is clicked.
 function filterPopul() {
+  filterMainBtn.classList.remove('active');
   filterList.classList.remove('active');
   const { mediaDivsArr } = intoArray();
   mediaDivsArr.sort((a, b) => {
@@ -50,6 +82,7 @@ function filterPopul() {
 
 function filterDate() {
   const { mediaDivsArr } = intoArray();
+  filterMainBtn.classList.remove('active');
   filterList.classList.remove('active');
   mediaDivsArr.sort((a, b) => {
     const dateA = a.querySelector('.element-date').innerHTML;
@@ -73,8 +106,8 @@ function filterDate() {
 
 function filterTitle() {
   const { mediaDivsArr } = intoArray();
+  filterMainBtn.classList.remove('active');
   filterList.classList.remove('active');
-
   mediaDivsArr.sort((a, b) => {
     const titleA = a.querySelector('.dscr__title');
     const titleB = b.querySelector('.dscr__title');
