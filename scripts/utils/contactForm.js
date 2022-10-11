@@ -14,13 +14,63 @@ const confirmModalText = document.querySelector('.confirm-modal');
 const inputField = document.querySelectorAll('.text-control');
 const contactModal = document.getElementById('contact_modal');
 
-// open & close modal
-function displayModal() {
-  modal.style.display = 'block';
-}
+// accessibility
+const modalDiv = document.querySelector('.modal');
+const modalOverlay = document.querySelector('.modal-overlay');
 
+// open & close modal
 function closeModal() {
   modal.style.display = 'none';
+}
+
+function displayModal() {
+  modal.style.display = 'block';
+  const focusedElementBeforeModal = document.activeElement;
+
+  // Sign-Up button
+  const signUpBtn = modal.querySelector('#signup');
+
+  // Find all focusable children
+  const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+  let focusableElements = modal.querySelectorAll(focusableElementsString);
+  // Convert NodeList to Array
+  focusableElements = Array.prototype.slice.call(focusableElements);
+
+  const firstTabStop = focusableElements[0];
+  const lastTabStop = focusableElements[focusableElements.length - 1];
+
+  // Show the modal and overlay
+  modal.style.display = 'block';
+  modalOverlay.style.display = 'block';
+
+  // Focus first child
+  firstTabStop.focus();
+
+  function trapTabKey(e) {
+    // Check for TAB key press
+    if (e.keyCode === 9) {
+      // SHIFT + TAB
+      if (e.shiftKey) {
+        if (document.activeElement === firstTabStop) {
+          e.preventDefault();
+          lastTabStop.focus();
+        }
+
+      // TAB
+      } else if (document.activeElement === lastTabStop) {
+        e.preventDefault();
+        firstTabStop.focus();
+      }
+    }
+
+    // ESCAPE
+    if (e.keyCode === 27) {
+      closeModal();
+    }
+  }
+  modal.addEventListener('keydown', trapTabKey);
+  signUpBtn.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', closeModal);
 }
 
 function closeConfirm() {
@@ -110,7 +160,6 @@ const confirmModalOn = (e) => {
     confirmModalText.style.display = 'block';
     closeModal();
     // reset modal when everything is validated.
-
     form.reset();
   }
 };

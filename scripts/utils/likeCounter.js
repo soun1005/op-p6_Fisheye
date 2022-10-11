@@ -10,5 +10,6 @@ function countLike(medias) {
   });
   const likeCounter = document.getElementById('likes-total');
   likeCounter.textContent = `${likeSum}`;
+  likeCounter.setAttribute('aria-label', `${likeSum}likes`);
   // console.log(likeSum);
 }

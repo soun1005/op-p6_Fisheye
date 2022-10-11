@@ -12,6 +12,7 @@ const listBtnTitle = document.querySelector('.filter-list-title');
 const filterList = document.querySelector('.filter-list');
 const arrow = document.querySelector('.fa-downside');
 
+
 // media divs into array
 function intoArray() {
   const mediaDivs = document.querySelectorAll('.media__wrap');
@@ -25,6 +26,7 @@ filterMainBtn.addEventListener('click', () => {
   const listElements = document.querySelectorAll('li');
   const buttonCurrentValue = document.querySelector('.filter-main-btn');
   const list = document.querySelector('.filter-list');
+
   // each buttons inside <li>
   listElements.forEach((elem) => {
     // if list match the main button, display none
@@ -36,20 +38,25 @@ filterMainBtn.addEventListener('click', () => {
         buttonCurrentValue.innerText = elem.innerText;
         filterList.classList.remove('active');
         buttonCurrentValue.classList.remove('active');
+        buttonCurrentValue.setAttribute('aria-label', buttonCurrentValue.innerText);
       });
     }
   });
 
   // list.style.display = currentDisplay === 'none' ? 'block' : 'none';
+  // if the list is expanded
   if (!list.classList.contains('active')) {
     filterList.classList.add('active');
     buttonCurrentValue.classList.add('active');
     arrow.classList.add('active');
+    buttonCurrentValue.setAttribute('aria-expanded', true);
   } else {
     filterList.classList.remove('active');
     buttonCurrentValue.classList.remove('active');
     arrow.classList.remove('active');
+    buttonCurrentValue.setAttribute('aria-expanded', false);
   }
+
   // last button border-radius
   const displayedBtn = list.style.display;
   
@@ -59,6 +66,7 @@ filterMainBtn.addEventListener('click', () => {
 function filterPopul() {
   filterMainBtn.classList.remove('active');
   filterList.classList.remove('active');
+  filterMainBtn.setAttribute('aria-label', 'trier par popularite');
   const { mediaDivsArr } = intoArray();
   mediaDivsArr.sort((a, b) => {
     const likesA = a.querySelector('.liked-number').innerHTML;
@@ -85,6 +93,7 @@ function filterDate() {
   const { mediaDivsArr } = intoArray();
   filterMainBtn.classList.remove('active');
   filterList.classList.remove('active');
+  filterMainBtn.setAttribute('aria-label', 'trier par date');
   mediaDivsArr.sort((a, b) => {
     const dateA = a.querySelector('.element-date').innerHTML;
     const dateB = b.querySelector('.element-date').innerHTML;
@@ -106,6 +115,7 @@ function filterDate() {
 }
 
 function filterTitle() {
+  filterMainBtn.setAttribute('aria-label', 'trier par titre');
   const { mediaDivsArr } = intoArray();
   filterMainBtn.classList.remove('active');
   filterList.classList.remove('active');
@@ -122,5 +132,21 @@ function filterTitle() {
 }
 
 listBtnPopular.addEventListener('click', filterPopul);
+listBtnPopular.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    filterPopul();
+  }
+});
+
 listBtnDate.addEventListener('click', filterDate);
+listBtnDate.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    filterDate();
+  }
+});
 listBtnTitle.addEventListener('click', filterTitle);
+listBtnTitle.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    filterTitle();
+  }
+});

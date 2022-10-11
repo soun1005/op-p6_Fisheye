@@ -8,6 +8,42 @@ h1, h2, h3, p {
   margin: 0;
 }
 
+.arrow {
+  width: 20px;
+  height: 20px;
+  border-style: solid none none solid;
+  border-width: 6px;
+  color: #901C1C;
+  cursor: pointer;
+}
+
+.cross-arrow-left {
+  transform: rotate(135deg);
+}
+
+.cross-arrow-right {
+  transform: rotate(-45deg);
+}
+
+.close-btn:hover, .close_button:focus {
+  transform: scale(1.1);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.close-btn {
+  position: absolute;
+  right: -30px;
+  color: #901C1C;
+  padding: 12px;
+  background-color: transparent;
+  display: flex;
+  gap: 3px;
+}
+
 ul, li {
   list-style: none;
   margin: 0;
@@ -262,6 +298,11 @@ form #message {
   cursor: pointer;
 }
 
+.modal__header > .close-btn {
+  right: 0;
+  top: 2rem;
+}
+
 .lightbox {
   position: fixed;
   width: 100%;
@@ -305,22 +346,6 @@ form #message {
 }
 .lightbox__container .cross-arrow-right {
   transform: rotate(-45deg);
-}
-.lightbox__container .close-btn:hover, .lightbox__container .close_button:focus {
-  transform: scale(1.1);
-}
-.lightbox__container button {
-  cursor: pointer;
-  border: none;
-}
-.lightbox__container .close-btn {
-  position: absolute;
-  right: -30px;
-  color: #901C1C;
-  padding: 12px;
-  background-color: transparent;
-  display: flex;
-  gap: 3px;
 }
 .lightbox__content {
   display: flex;

@@ -64,5 +64,6 @@ async function init() {
   // from /utils/like-counter.js
   countLike(photographerMedias);
   // sortMedias();
+  filterPopul();
 }
 init();

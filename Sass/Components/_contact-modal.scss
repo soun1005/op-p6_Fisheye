@@ -166,3 +166,8 @@ form {
         cursor: pointer;
     }
   }
+
+  .modal__header > .close-btn{
+    right: 0;
+    top: 2rem;
+  }

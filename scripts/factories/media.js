@@ -20,17 +20,20 @@ function mediaFactory(data, index) {
     if (image) {
       const imageTag = document.createElement('img');
       imageTag.setAttribute('src', picture);
-      imageTag.setAttribute('alt', title);
+      // for accessiblility
+      imageTag.setAttribute('alt', `${title} closeup view`);
       imageTag.classList.add('gallery-media');
-      imageTag.tabIndex = (index + 8);
       mediaWrap.append(imageTag);
+      imageTag.tabIndex = 0;
     } else {
       const videoTag = document.createElement('video');
       videoTag.setAttribute('src', videoSrc);
+      // for accessiblility
+      videoTag.setAttribute('aria-label', `${title} closeup view`);
       videoTag.classList.add('gallery-media');
-      videoTag.tabIndex = (index + 8);
+      // for accessiblility
       mediaWrap.append(videoTag);
-
+      videoTag.tabIndex = 0;
     }
 
     const dscrWrap = document.createElement('div');
@@ -38,6 +41,7 @@ function mediaFactory(data, index) {
 
     const mediaTitle = document.createElement('p');
     mediaTitle.classList.add('dscr__title');
+    // for accessiblility
     mediaTitle.textContent = title;
 
     const countLikeWrap = document.createElement('div');
@@ -45,6 +49,9 @@ function mediaFactory(data, index) {
     const likedNumber = document.createElement('p');
     likedNumber.classList.add('liked-number');
     likedNumber.textContent = likes;
+    // for accessiblility
+    likedNumber.setAttribute('aria-label', `${likes} likes`);
+    likedNumber.tabIndex = 0;
     const iconDiv = document.createElement('div');
     iconDiv.classList.add('icon-wrap');
     const elementDate = document.createElement('p');
@@ -75,6 +82,16 @@ function mediaFactory(data, index) {
     }
     // can click only once by { once: true}
     likeIcon.addEventListener('click', (addLike), { once: true });
+    likeIcon.addEventListener(
+      'keydown',
+      (event) => {
+        if (event.key === 'Enter') {
+          addLike();
+        }
+      },
+      { once: true },
+    );
+      
 
     // open lightbox
     const lightBox = document.querySelector('.lightbox');
@@ -113,6 +130,11 @@ function mediaFactory(data, index) {
     }
     // when media element is clicked
     mediaWrap.childNodes[0].addEventListener('click', (openLb));
+    mediaWrap.childNodes[0].addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        openLb();
+      }
+    });
 
     return mediaWrap;
   }

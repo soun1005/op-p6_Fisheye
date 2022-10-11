@@ -21,8 +21,7 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     photographerLink.href = `photographer.html?id=${id}`;
     // accessibility
     photographerLink.setAttribute('role', 'link');
-    // photographerLink.setAttribute('tabindex', '3');
-    photographerLink.tabIndex = (cardNum + 3);
+
     // <img>
     const img = document.createElement('img');
     img.setAttribute('src', picture);
@@ -40,8 +39,6 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     homeTown.textContent = `${city}, ${country}`;
     tagLineElement.textContent = tagline;
     priceElement.textContent = `${price}€ / jour`;
-    articleInfo.tabIndex = (cardNum + 4);
-    // articleInfo.setAttribute('tabindex', '4');
 
     // class names added in HTML
     articleInfo.classList.add('info');
@@ -70,6 +67,7 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
 
     const profileName = document.createElement('h1');
     profileName.textContent = name;
+    profileName.tabIndex = 0;
 
     const location = document.createElement('p');
     location.textContent = `${city}, ${country}`;
@@ -87,14 +85,10 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     photographeHeader.append(profileImg);
 
     profileName.classList.add('header__profile-wrap__name');
-    profileName.tabIndex = '1';
     location.classList.add('header__profile-wrap__location');
-    location.tabIndex = '2';
     tagLine.classList.add('header__profile-wrap__tagline');
-    tagLine.tabIndex = '3';
     profileDiv.classList.add('header__profile-wrap');
     profileImg.classList.add('header__img');
-    profileImg.tabIndex = '5';
     // profileImg.setAttribute('aria-label', 'photo');
 
     // user price
@@ -105,6 +99,8 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     const modalHeaderWrap = document.querySelector('.modal__header__wrap');
     const contactName = document.createElement('h2');
     contactName.textContent = name;
+    contactName.setAttribute('aria-label', name);
+    contactName.tabIndex = 0;
     modalHeaderWrap.append(contactName);
 
     return profileDiv;

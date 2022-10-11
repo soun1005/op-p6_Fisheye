@@ -8,19 +8,30 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
-    <script src="https://kit.fontawesome.com/b38e917b9e.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/b38e917b9e.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Fisheye - photographe</title>
   </head>
   <body>
     <header>
-      <a href="/index.html">      
-        <img src="assets/images/logo.png" class="logo" alt="logo"  tabindex="0"/>
+      <a href="/index.html">
+        <img
+          src="assets/images/logo.png"
+          class="logo"
+          alt="lien page d'acceuil"
+        />
       </a>
     </header>
 
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()" tabindex="4" aria-label="Contact Me">
+        <button
+          class="contact_button"
+          onclick="displayModal()"
+          aria-label="Contactez-moi"
+        >
           Contactez-moi
         </button>
       </div>
@@ -28,35 +39,72 @@
       <section class="photographer-media">
         <!-- filter -->
 
-        <div class="filter" id="filter" tabindex="6">
-          <p>Trier par</p>
-          <div class="filter__wrap">
+        <div class="filter" id="filter">
+          <p id="sortby">Trier par</p>
+          <div class="filter__wrap" role="list">
             <div class="filter__wrap__main-btn">
-              <button class="filter-main-btn" tabindex="7">Popularité</button>
-              <span class="fa-sharp fa-solid fa-chevron-right fa-downside"></span>
+              <button
+                class="filter-main-btn"
+                tabindex="0"
+                aria-expanded="false"
+                role="listitem"
+                aria-label="trier par popularité"
+                aria-controls="filter-list"
+              >
+                Popularité
+              </button>
+              <span
+                class="fa-sharp fa-solid fa-chevron-right fa-downside"
+              ></span>
             </div>
             <nav>
-              <ul class="filter-list">
-                <li class="filter-list-main-btn"><button class="filter-list-btn filter-list-popular"><span>Popularité</span></button></li>
-                <li><button class="filter-list-btn filter-list-date"><span>Date</span></button></li>
-                <li><button class="filter-list-btn filter-list-title"><span>Titre</span></button></li>
+              <ul class="filter-list" role="group">
+                <li class="filter-list-main-btn">
+                  <button
+                    class="filter-list-btn filter-list-popular"
+                    role="listitem"
+                    tabindex="0"
+                    aria-label="trier par popularité"
+                  >
+                    <span>Popularité</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="filter-list-btn filter-list-date"
+                    role="listitem"
+                    tabindex="0"
+                    aria-label="trier par date"
+                  >
+                    <span>Date</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="filter-list-btn filter-list-title"
+                    role="listitem"
+                    tabindex="0"
+                    aria-label="trier par Titre"
+                  >
+                    <span>Titre</span>
+                  </button>
+                </li>
               </ul>
             </nav>
           </div>
         </div>
-          <!-- media gallery -->
-          <div class="media-container" id="media-container" >
-          </div>
-          <!-- end of media gallery -->
+        <!-- media gallery -->
+        <div class="media-container" id="media-container"></div>
+        <!-- end of media gallery -->
       </section>
       <!-- End of media section -->
       <!-- Total likes & price -->
       <div class="likeCounter">
         <div class="likes">
-          <span id="likes-total"></span>
+          <span id="likes-total" tabindex="0"></span>
           <i class="fa-solid fa-heart"></i>
         </div>
-        <span id="user-price">300€ / jour</span>
+        <span id="user-price" tabindex="0">300€ / jour</span>
       </div>
       <!-- End total likes & price -->
       <!-- lightbox -->
@@ -66,49 +114,60 @@
             <span class="arrow cross-arrow-left"></span>
             <span class="arrow cross-arrow-right"></span>
           </button>
-          <div class="lightbox__content" >
+          <div class="lightbox__content">
             <a class="arrow arrow-left slide-btn"></a>
-            <figure class="lightbox__img" >
-            </figure>
+            <figure class="lightbox__img"></figure>
             <a class="arrow arrow-right slide-btn"></a>
           </div>
-       
         </div>
       </div>
     </main>
-    <div id="contact_modal">
-      <div class="modal">
+    <!-- contact modal -->
+    <div id="contact_modal" tabindex="0">
+      <div class="modal" tabindex="0" aria-labelledby="contactMe">
         <header class="modal__header">
           <div class="modal__header__wrap">
-            <h2 id="contactMe">Contactez-moi</h2>
+            <h2 id="contactMe" tabindex="0" aria-label="contactez moi">
+              Contactez-moi
+            </h2>
           </div>
-          <img src="assets/icons/close.svg" alt="close" onclick="closeModal()" />
+          <button
+            class="close-btn"
+            tabindex="0"
+            onclick="closeModal()"
+            aria-label="fermer le formulaire"
+          >
+            <span class="arrow cross-arrow-left"></span>
+            <span class="arrow cross-arrow-right"></span>
+          </button>
         </header>
         <form id="form">
           <!-- first name -->
-          <div class="formData"
-          data-error="Veuillez entrer plus de 2 alphabets. Chiffres non autorisés."
-        >
-            <label for="first">Prénom</label>
+          <div
+            class="formData"
+            data-error="Veuillez entrer plus de 2 alphabets. Chiffres non autorisés."
+          >
+            <label for="first" id="first-name">Prénom</label>
             <input
               class="text-control"
               type="text"
               id="first"
               name="first"
+              aria-labelledby="first-name"
             />
-            
           </div>
           <!-- last name  -->
           <div
             class="formData"
             data-error="Veuillez entrer plus de 2 alphabets. Chiffres non autorisés."
           >
-            <label for="last">Nom</label>
+            <label for="last" id="last-name">Nom</label>
             <input
               class="text-control"
               type="text"
               id="last"
               name="last"
+              aria-labelledby="last-name"
             />
           </div>
           <!-- email input -->
@@ -116,42 +175,51 @@
             class="formData"
             data-error="L'adresse électronique est invalide."
           >
-            <label for="email">E-mail</label>
+            <label for="email" id="email-label">E-mail</label>
             <input
               class="text-control"
               type="email"
               id="email"
               name="email"
               placeholder="abc@abcd.com"
+              aria-labelledby="email-label"
             />
           </div>
           <!-- message input -->
-          <div class="formData"
-               data-error="Veuillez entrer plus de 1 alphabets.">
-               <label for="message">Votre message</label>
-               <input type="text" 
-                  id="message" 
-                  name="message"  
-                  class="text-control">
+          <div
+            class="formData"
+            data-error="Veuillez entrer plus de 1 alphabets."
+          >
+            <label for="message" id="message-input">Votre message</label>
+            <input
+              type="text"
+              id="message"
+              name="message"
+              class="text-control"
+              aria-labelledby="message-input"
+            />
           </div>
-              <button 
-              class="contact_button" 
-              id="contact_btn"
-              >Envoyer</button>
-          </div>
+          <button class="contact_button" id="contact_btn" aria-label="Envoyer">
+            Envoyer
+          </button>
+          <!-- </div> -->
         </form>
       </div>
-      <div class="confirm-bg" id="confirm-modal">
-        <div class="confirm-modal content">
-          <!-- <span class="close" id="confirm-close-icon"></span> -->
-          <div class="confirm-modal-wrap">
-            <p>
-              Message is sent!
-            </p>
-            <button class="confirm-modal-btn contact_button" id="close-confirm">
-              Fermer
-            </button>
-          </div>
+      <div class="modal-overlay"></div>
+    </div>
+    <!-- contact form confirmation modal -->
+    <div class="confirm-bg" id="confirm-modal">
+      <div class="confirm-modal content">
+        <!-- <span class="close" id="confirm-close-icon"></span> -->
+        <div class="confirm-modal-wrap">
+          <p>Message is sent!</p>
+          <button
+            class="confirm-modal-btn contact_button"
+            id="close-confirm"
+            aria-label="firmer confirmation"
+          >
+            Fermer
+          </button>
         </div>
       </div>
     </div>
@@ -163,6 +231,5 @@
     <script src="/scripts/utils/sort.js"></script>
     <script src="/scripts/utils/likeCounter.js"></script>
     <script src="/scripts/utils/lightBox.js"></script>
-
   </body>
 </html>
