@@ -63,6 +63,7 @@ function mediaFactory(data, index) {
     likeIcon.classList.add('fa-solid');
     likeIcon.classList.add('fa-heart');
     likeIcon.classList.add('photoHeart');
+    likeIcon.setAttribute('aria-label', 'click like button');
     likeIcon.tabIndex = 0;
 
     mediaWrap.append(dscrWrap);
