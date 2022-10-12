@@ -62,14 +62,12 @@ function displayModal() {
         firstTabStop.focus();
       }
     }
-
     // ESCAPE
     if (e.keyCode === 27) {
       closeModal();
     }
   }
   modal.addEventListener('keydown', trapTabKey);
-  signUpBtn.addEventListener('click', closeModal);
   modalOverlay.addEventListener('click', closeModal);
 }
 

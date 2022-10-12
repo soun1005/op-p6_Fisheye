@@ -91,6 +91,7 @@ li {
 }
 .filter-main-btn:hover {
   background-color: #D3573C;
+  border: 1px solid #D3573C;
   color: #000;
 }
 .filter-list {
@@ -117,6 +118,7 @@ li {
 }
 .filter-list-btn:hover {
   background-color: #D3573C;
+  border: 1px solid #D3573C;
   color: #000;
 }
 .filter-list-main-btn {
@@ -178,6 +180,7 @@ li {
 }
 .contact_button:hover, .contact_button:active {
   background-color: #D3573C;
+  border: 1px solid #D3573C;
   color: #000;
 }
 
@@ -323,7 +326,7 @@ form #message {
   height: 100%;
   top: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.7);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   display: none;

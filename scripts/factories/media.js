@@ -63,6 +63,7 @@ function mediaFactory(data, index) {
     likeIcon.classList.add('fa-solid');
     likeIcon.classList.add('fa-heart');
     likeIcon.classList.add('photoHeart');
+    likeIcon.tabIndex = 0;
 
     mediaWrap.append(dscrWrap);
     mediaWrap.append(countLikeWrap);
@@ -73,7 +74,9 @@ function mediaFactory(data, index) {
     countLikeWrap.append(iconDiv);
     iconDiv.append(likeIcon);
 
-    // like button
+    /************************
+     like button
+    *************************/
     likeIcon.style.cursor = 'pointer';
     function addLike() {
       const totalCount = document.getElementById('likes-total');
@@ -86,21 +89,31 @@ function mediaFactory(data, index) {
     likeIcon.addEventListener(
       'keydown',
       (event) => {
+        // event.preventDefault();
         if (event.key === 'Enter') {
+          event.preventDefault();
           addLike();
         }
       },
       { once: true },
     );
-    // open lightbox
+
+    /************************
+      open lightbox
+    *************************/
     const lightBox = document.querySelector('.lightbox');
     const lbImgTag = document.createElement('img');
     const lbVideoTag = document.createElement('video');
     const lbFigure = document.querySelector('.lightbox__img');
+    const modalOverlayLb = document.querySelector('.modal-overlay-lightbox');
+    const lbCloseBtn = document.querySelector('.close-btn');
 
-    // when media is clicked runs function openLb
+    function closeLb() {
+      lightBox.style.display = 'none';
+    }
+
+    /******* when media is clicked runs function openLb ********/
     function openLb() {
-      lightBox.style.display = 'flex';
       let child = lbFigure.firstElementChild;
       while (child) {
         lbFigure.removeChild(child);
@@ -119,6 +132,7 @@ function mediaFactory(data, index) {
         lbVideoTag.setAttribute('src', videoSrc);
         lbVideoTag.setAttribute('controls', 'true');
         lbVideoTag.setAttribute('autoplay', 'true');
+        lbVideoTag.tabIndex = -1;
         lbVideoTag.classList.add('lightbox__current-element');
       }
       // media description
@@ -126,14 +140,70 @@ function mediaFactory(data, index) {
       figCaption.textContent = title;
       figCaption.classList.add('lightbox__dscr');
       lbFigure.append(figCaption);
+      // accessibility
+      const focusedElementBeforeModal = document.activeElement;
+      // Find all focusable children
+      const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+      let focusableElements = lightBox.querySelectorAll(focusableElementsString);
+      // Convert NodeList to Array
+      focusableElements = Array.prototype.slice.call(focusableElements);
+
+      const firstTabStop = focusableElements[0];
+      const lastTabStop = focusableElements[focusableElements.length - 1];
+
+      // Show the modal and overlay
+      lightBox.style.display = 'flex';
+      modalOverlayLb.style.display = 'block';
+
+      // Focus first child
+      function trapTabKey(e) {
+        // Check for TAB key press
+        if (e.keyCode === 9) {
+          // SHIFT + TAB
+          if (e.shiftKey) {
+            if (document.activeElement === firstTabStop) {
+              e.preventDefault();
+              lastTabStop.focus();
+            }
+            // TAB
+          } else if (document.activeElement === lastTabStop) {
+            e.preventDefault();
+            firstTabStop.focus();
+          }
+          // // ESCAPE
+          // if (e.keyCode === 27) {
+          //   e.preventDefault();
+          //   closeLb();
+          // }
+        }
+      }
+      firstTabStop.focus();
+      lightBox.addEventListener('keydown', trapTabKey);
     }
     // when media element is clicked
     mediaWrap.childNodes[0].addEventListener('click', (openLb));
+    // open lightbox with enter key
     mediaWrap.childNodes[0].addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
+        event.preventDefault();
         openLb();
       }
     });
+    lbCloseBtn.addEventListener('click', (closeLb));
+    lightBox.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        console.log('esc works');
+        closeLb();
+      }
+    });
+
+    // lightBox.addEventListener('keydown', (event) => {
+    //   if (event.key === 'ArrowLeft') {
+    //     event.preventDefault();
+    //     console.log('arrow works');
+    //   }
+    // });
 
     return mediaWrap;
   }

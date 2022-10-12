@@ -2,12 +2,6 @@
 const lightBox = document.querySelector('.lightbox');
 const lbCloseBtn = document.querySelector('.close-btn');
 
-// close lightbox modal
-function closeLb() {
-  lightBox.style.display = 'none';
-}
-
-lbCloseBtn.addEventListener('click', closeLb);
 lbCloseBtn.style.cursor = 'pointer';
 
 // arrow buttons on lightbox
@@ -64,7 +58,8 @@ function getLbInfo() {
   return { lightboxId, mediaLength };
 }
 
-arrowBtns[0].addEventListener('click', () => {
+// 'previous' function
+function mediaSlideLeftBtn() {
   const { lightboxId, mediaLength } = getLbInfo();
   // when element's id is 0, next element id is same as the length of the medias
   if (lightboxId === 0) {
@@ -72,13 +67,70 @@ arrowBtns[0].addEventListener('click', () => {
   } else {
     gallerySwitch(-1);
   }
-});
+}
 
-arrowBtns[1].addEventListener('click', () => {
+// 'next' function
+function mediaSlideRightBtn() {
   const { lightboxId, mediaLength } = getLbInfo();
   if (lightboxId === mediaLength) {
     gallerySwitch(-mediaLength);
   } else {
     gallerySwitch(1);
   }
+}
+
+// 'previous' button events
+arrowBtns[0].addEventListener('click', (mediaSlideLeftBtn));
+arrowBtns[0].addEventListener(
+  'keydown',
+  (event) => {
+    // event.preventDefault();
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      mediaSlideLeftBtn();
+    }
+  },
+);
+
+// 'next' button events
+arrowBtns[1].addEventListener('click', (mediaSlideRightBtn));
+arrowBtns[1].addEventListener(
+  'keydown',
+  (event) => {
+    // event.preventDefault();
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      mediaSlideRightBtn();
+    }
+  },
+);
+lightBox.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft') {
+    event.preventDefault();
+    console.log('arrow left works');
+    mediaSlideLeftBtn();
+  }
 });
+lightBox.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowRight') {
+    event.preventDefault();
+    console.log('arrow right works');
+    mediaSlideRightBtn();
+  }
+});
+
+// lightBox.addEventListener = (e) => {
+//   switch (e.key) {
+//     case 'ArrowLeft':
+//       e.preventDefault();
+//       console.log('arrow button works');
+//       mediaSlideLeftBtn();
+//       break;
+//     case 39:
+//       e.preventDefault();
+//       mediaSlideRightBtn();
+//       break;
+//     default:
+//       break;
+//   }
+// };
