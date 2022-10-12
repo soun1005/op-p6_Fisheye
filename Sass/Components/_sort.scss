@@ -1,24 +1,26 @@
-ul, li {
+ul,
+li {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-
+}
 
 .filter {
     display: flex;
     margin-top: 1.5rem;
     margin-left: 5rem;
     align-items: center;
+
     p {
         font-size: 18px;
         font-weight: 900;
     }
 
-    &__wrap{
+    &__wrap {
         position: relative;
         display: flex;
         flex-direction: column;
+
         &__main-btn {
             cursor: pointer;
             position: relative;
@@ -32,26 +34,34 @@ ul, li {
     &-main-btn {
         background: $c-main;
         color: #FFFFFF;
-        border: 10px solid $c-main;
+        border: 1px solid $c-main;
         font-size: 20px;
         width: 170px;
+        height: 4rem;
         border-radius: 5px;
         padding-left: 10px;
         padding-top: 8px;
         padding-bottom: 8px;
         cursor: pointer;
         text-align: left;
+
+        &:hover {
+            background-color: $c-sub-bg;
+            color: #000;
+        }
     }
 
     &-list {
         display: none;
     }
+
     li span {
         display: block;
         border-top: 1px solid white;
         width: 88%;
         line-height: 64px;
     }
+
     &-list-btn {
         margin: 0;
         padding: 0;
@@ -63,22 +73,27 @@ ul, li {
         margin-left: 1rem;
         text-align: left;
         padding-left: 18px;
-        // padding-top: 8px;
-        // padding-bottom: 8px;
         cursor: pointer;
+
+        &:hover {
+            background-color: $c-sub-bg;
+            color: #000;
+        }
     }
+
     &-list-main-btn {
         display: flex;
         align-items: center;
     }
-   
-  }
+
+}
+
 /* when the main button is clicked add active class */
 .filter-list.active {
     display: block;
     position: absolute;
     z-index: 1000;
-    }
+}
 
 .filter-main-btn.active {
     border-radius: 5px 5px 0 0;
@@ -98,4 +113,4 @@ ul, li {
     left: 67%;
     color: white;
     transform: rotate(90deg);
-    }
+}

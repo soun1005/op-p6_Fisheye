@@ -12,7 +12,6 @@ const listBtnTitle = document.querySelector('.filter-list-title');
 const filterList = document.querySelector('.filter-list');
 const arrow = document.querySelector('.fa-downside');
 
-
 // media divs into array
 function intoArray() {
   const mediaDivs = document.querySelectorAll('.media__wrap');
@@ -30,12 +29,14 @@ filterMainBtn.addEventListener('click', () => {
   // each buttons inside <li>
   listElements.forEach((elem) => {
     // if list match the main button, display none
-    if (elem.innerText === buttonCurrentValue.innerText) {
+    const textContent = elem.querySelector('span').innerText;
+
+    if (textContent === buttonCurrentValue.innerText) {
       elem.style.display = 'none';
     } else {
       elem.style.display = 'block';
       elem.addEventListener('click', () => {
-        buttonCurrentValue.innerText = elem.innerText;
+        buttonCurrentValue.innerText = textContent;
         filterList.classList.remove('active');
         buttonCurrentValue.classList.remove('active');
         buttonCurrentValue.setAttribute('aria-label', buttonCurrentValue.innerText);
@@ -59,7 +60,6 @@ filterMainBtn.addEventListener('click', () => {
 
   // last button border-radius
   const displayedBtn = list.style.display;
-  
 });
 
 //  when 'popularity' is clicked.

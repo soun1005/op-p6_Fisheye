@@ -79,6 +79,7 @@ function mediaFactory(data, index) {
       const totalCount = document.getElementById('likes-total');
       totalCount.textContent = parseInt(totalCount.textContent, 10) + 1;
       likedNumber.textContent = parseInt(likedNumber.textContent, 10) + 1;
+      likeIcon.classList.add('active');
     }
     // can click only once by { once: true}
     likeIcon.addEventListener('click', (addLike), { once: true });
@@ -91,8 +92,6 @@ function mediaFactory(data, index) {
       },
       { once: true },
     );
-      
-
     // open lightbox
     const lightBox = document.querySelector('.lightbox');
     const lbImgTag = document.createElement('img');

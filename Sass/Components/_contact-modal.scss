@@ -12,26 +12,27 @@
 
 .contact_button {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: normal;
     color: white;
     padding: 11px;
     width: 170px;
     height: 70px;
     border: none;
-    background-color: #901C1C;
+    background-color: $c-main;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 6rem;
-    &:hover, &:active {
+
+    &:hover,
+    &:active {
         background-color: $c-sub-bg;
         color: #000;
     }
-
 }
 
 .modal {
     border-radius: 5px;
-    background-color: rgb(219, 136, 118);
+    background-color: $c-sub-bg;
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
@@ -48,14 +49,17 @@
         justify-content: space-between;
         width: 100%;
         margin-bottom: 2.5rem;
+        margin-top: 1rem;
 
         & img {
             cursor: pointer;
         }
-        & h2 {
-            font-size: 50px;
+
+        & h1 {
+            font-size: 3rem;
             font-weight: normal;
             margin-bottom: 5px;
+            color: #000;
         }
 
         #contactMe {
@@ -103,7 +107,7 @@ form {
     }
 }
 
-/* error message */
+/* contact form error message */
 .formData[data-error]::after {
     content: attr(data-error);
     font-size: 18px;
@@ -116,10 +120,10 @@ form {
     transition: 0.3s;
 }
 
+/* when the form is not validated */
 .formData[data-error-visible="true"]::after {
     opacity: 1;
 }
-
 
 /* confirm modal */
 .confirm-bg {
@@ -132,11 +136,11 @@ form {
     width: 100%;
     overflow: auto;
     background-color: rgba(252, 252, 252, 0.4);
-  }
+}
 
-  .confirm-modal {
+.confirm-modal {
     border-radius: 5px;
-    background-color: rgb(219, 136, 118);
+    background-color: $c-sub-bg;
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
@@ -154,20 +158,22 @@ form {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
         p {
             margin: auto;
             font-size: 3rem;
         }
     }
+
     &-btn {
         font-size: 20px;
         margin: 0 auto;
         margin-top: 2rem;
         cursor: pointer;
     }
-  }
+}
 
-  .modal__header > .close-btn{
-    right: 0;
+.modal__header>.close-btn {
+    right: 11px;
     top: 2rem;
-  }
+}

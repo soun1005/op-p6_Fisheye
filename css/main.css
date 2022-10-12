@@ -8,6 +8,21 @@ h1, h2, h3, p {
   margin: 0;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.close-btn {
+  position: absolute;
+  right: -30px;
+  color: #901C1C;
+  padding: 12px;
+  background-color: transparent;
+  display: flex;
+  gap: 3px;
+}
+
 .arrow {
   width: 20px;
   height: 20px;
@@ -25,26 +40,13 @@ h1, h2, h3, p {
   transform: rotate(-45deg);
 }
 
-.close-btn:hover, .close_button:focus {
+.close-btn:hover,
+.close_button:focus {
   transform: scale(1.1);
 }
 
-button {
-  cursor: pointer;
-  border: none;
-}
-
-.close-btn {
-  position: absolute;
-  right: -30px;
-  color: #901C1C;
-  padding: 12px;
-  background-color: transparent;
-  display: flex;
-  gap: 3px;
-}
-
-ul, li {
+ul,
+li {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -76,15 +78,20 @@ ul, li {
 .filter-main-btn {
   background: #901C1C;
   color: #FFFFFF;
-  border: 10px solid #901C1C;
+  border: 1px solid #901C1C;
   font-size: 20px;
   width: 170px;
+  height: 4rem;
   border-radius: 5px;
   padding-left: 10px;
   padding-top: 8px;
   padding-bottom: 8px;
   cursor: pointer;
   text-align: left;
+}
+.filter-main-btn:hover {
+  background-color: #D3573C;
+  color: #000;
 }
 .filter-list {
   display: none;
@@ -107,6 +114,10 @@ ul, li {
   text-align: left;
   padding-left: 18px;
   cursor: pointer;
+}
+.filter-list-btn:hover {
+  background-color: #D3573C;
+  color: #000;
 }
 .filter-list-main-btn {
   display: flex;
@@ -154,7 +165,7 @@ ul, li {
 
 .contact_button {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: normal;
   color: white;
   padding: 11px;
   width: 170px;
@@ -172,7 +183,7 @@ ul, li {
 
 .modal {
   border-radius: 5px;
-  background-color: rgb(219, 136, 118);
+  background-color: #D3573C;
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
@@ -189,14 +200,16 @@ ul, li {
   justify-content: space-between;
   width: 100%;
   margin-bottom: 2.5rem;
+  margin-top: 1rem;
 }
 .modal header img {
   cursor: pointer;
 }
-.modal header h2 {
-  font-size: 50px;
+.modal header h1 {
+  font-size: 3rem;
   font-weight: normal;
   margin-bottom: 5px;
+  color: #000;
 }
 .modal header #contactMe {
   margin-top: 1rem;
@@ -236,7 +249,7 @@ form #message {
   height: 110px;
 }
 
-/* error message */
+/* contact form error message */
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 18px;
@@ -249,6 +262,7 @@ form #message {
   transition: 0.3s;
 }
 
+/* when the form is not validated */
 .formData[data-error-visible=true]::after {
   opacity: 1;
 }
@@ -268,7 +282,7 @@ form #message {
 
 .confirm-modal {
   border-radius: 5px;
-  background-color: rgb(219, 136, 118);
+  background-color: #D3573C;
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
@@ -299,7 +313,7 @@ form #message {
 }
 
 .modal__header > .close-btn {
-  right: 0;
+  right: 11px;
   top: 2rem;
 }
 
@@ -323,13 +337,15 @@ form #message {
   border-radius: 0 0 5px 5px;
 }
 .lightbox__container {
-  height: 40rem;
+  height: 90%;
   margin: auto;
   position: relative;
+  width: 90%;
 }
-.lightbox__container img, .lightbox__container video {
-  max-width: 650px;
-  max-height: 600px;
+.lightbox__container img,
+.lightbox__container video {
+  max-width: 800px;
+  max-height: 800px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -366,13 +382,15 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 90px;
+  margin-top: 2rem;
 }
 header .logo {
-  height: 50px;
-  margin-left: 100px;
+  height: 3rem;
+  margin-left: 3rem;
+  margin-bottom: 1rem;
 }
 
-h1 {
+#main-dscr {
   color: #D3573C;
   margin-right: 100px;
   font-size: 2.5rem;
@@ -391,7 +409,7 @@ h1 {
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 .photographer_section article {
   display: flex;
@@ -459,6 +477,9 @@ h1 {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.photograph-header .header__profile-wrap__name {
+  color: #D3573C;
+}
 
 .filter-section {
   display: flex;
@@ -489,8 +510,15 @@ h1 {
   justify-content: space-between;
   margin-top: 6px;
 }
-.media-container .media__wrap .dscr p, .media-container .media__wrap .dscr span {
+.media-container .media__wrap .dscr p,
+.media-container .media__wrap .dscr span {
   font-size: 20px;
+  color: #901C1C;
+}
+.media-container .media__wrap .dscr .photoHeart {
+  color: RGBA(144, 28, 28, 0.24);
+}
+.media-container .media__wrap .dscr .photoHeart.active {
   color: #901C1C;
 }
 .media-container .media__wrap .dscr__like-count {

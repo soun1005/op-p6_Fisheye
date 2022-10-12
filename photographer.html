@@ -24,8 +24,9 @@
         />
       </a>
     </header>
-
+    <!-- main -->
     <main id="main">
+      <!-- photographer profile -->
       <div class="photograph-header">
         <button
           class="contact_button"
@@ -35,13 +36,12 @@
           Contactez-moi
         </button>
       </div>
-      <!-- media section -->
       <section class="photographer-media">
-        <!-- filter -->
-
+        <!-- filter (trier par) -->
         <div class="filter" id="filter">
           <p id="sortby">Trier par</p>
           <div class="filter__wrap" role="list">
+            <!-- main button with default filter value of 'popularite' -->
             <div class="filter__wrap__main-btn">
               <button
                 class="filter-main-btn"
@@ -57,6 +57,7 @@
                 class="fa-sharp fa-solid fa-chevron-right fa-downside"
               ></span>
             </div>
+            <!-- 3 options of filter -->
             <nav>
               <ul class="filter-list" role="group">
                 <li class="filter-list-main-btn">
@@ -97,8 +98,7 @@
         <div class="media-container" id="media-container"></div>
         <!-- end of media gallery -->
       </section>
-      <!-- End of media section -->
-      <!-- Total likes & price -->
+      <!-- total likes & price -->
       <div class="likeCounter">
         <div class="likes">
           <span id="likes-total" tabindex="0"></span>
@@ -106,7 +106,8 @@
         </div>
         <span id="user-price" tabindex="0">300€ / jour</span>
       </div>
-      <!-- End total likes & price -->
+      <!-- end of total likes & price -->
+
       <!-- lightbox -->
       <div class="lightbox">
         <div class="lightbox__container">
@@ -122,14 +123,15 @@
         </div>
       </div>
     </main>
+    <!-- end of lightbox -->
     <!-- contact modal -->
     <div id="contact_modal" tabindex="0">
       <div class="modal" tabindex="0" aria-labelledby="contactMe">
         <header class="modal__header">
           <div class="modal__header__wrap">
-            <h2 id="contactMe" tabindex="0" aria-label="contactez moi">
+            <!-- <h1 id="contactMe" tabindex="0" aria-label="contactez moi">
               Contactez-moi
-            </h2>
+            </h1> -->
           </div>
           <button
             class="close-btn"
@@ -210,7 +212,6 @@
     <!-- contact form confirmation modal -->
     <div class="confirm-bg" id="confirm-modal">
       <div class="confirm-modal content">
-        <!-- <span class="close" id="confirm-close-icon"></span> -->
         <div class="confirm-modal-wrap">
           <p>Message is sent!</p>
           <button

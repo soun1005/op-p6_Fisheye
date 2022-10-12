@@ -1,25 +1,8 @@
-.arrow {
-    width: 20px;
-    height: 20px;
-    border-style: solid none none solid;
-    border-width: 6px;
-    color: $c-main;
-    cursor: pointer;
-}
-.cross-arrow-left {
-    transform: rotate(135deg);
-}
-.cross-arrow-right {
-    transform: rotate(-45deg);
-}
-
-.close-btn:hover, .close_button:focus {
-    transform: scale(1.1);
-}
 button {
     cursor: pointer;
     border: none;
 }
+
 .close-btn {
     position: absolute;
     right: -30px;
@@ -28,4 +11,27 @@ button {
     background-color: transparent;
     display: flex;
     gap: 3px;
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+    border-style: solid none none solid;
+    border-width: 6px;
+    color: $c-main;
+    cursor: pointer;
+}
+
+// close button styling
+.cross-arrow-left {
+    transform: rotate(135deg);
+}
+
+.cross-arrow-right {
+    transform: rotate(-45deg);
+}
+
+.close-btn:hover,
+.close_button:focus {
+    transform: scale(1.1);
 }

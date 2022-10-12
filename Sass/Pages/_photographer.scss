@@ -7,12 +7,14 @@
     align-items: center;
     margin: 0 3rem;
 
-
     img {
         width: 200px;
         height: 200px;
         border-radius: 50%;
         object-fit: cover;
+    }
+    .header__profile-wrap__name {
+        color: $c-sub-bg;
     }
 }
 
@@ -44,15 +46,27 @@
             display: flex;
             justify-content: space-between;
             margin-top: 6px;
-            p, span {
+
+            p,
+            span {
                 font-size: 20px;
                 color: $c-main;
             }
+            .photoHeart {
+                color: $c-unclicked;
+            }
+
+            .photoHeart.active{
+                color: $c-main;
+            }
+
             &__like-count {
                 display: flex;
+
                 .liked-number {
                     margin-right: 4px;
                 }
+
                 .icon-wrap {
                     margin: auto;
                 }
@@ -71,7 +85,6 @@
     position: fixed;
     right: 4%;
     bottom: 0;
-
     display: flex;
     justify-content: space-between;
     align-items: center;

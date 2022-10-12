@@ -97,8 +97,8 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
 
     // modal name display
     const modalHeaderWrap = document.querySelector('.modal__header__wrap');
-    const contactName = document.createElement('h2');
-    contactName.textContent = name;
+    const contactName = document.createElement('h1');
+    contactName.textContent = `Contactez moi ${name}`;
     contactName.setAttribute('aria-label', name);
     contactName.tabIndex = 0;
     modalHeaderWrap.append(contactName);
