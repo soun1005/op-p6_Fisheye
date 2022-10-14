@@ -21,7 +21,7 @@ function mediaFactory(data, index) {
       const imageTag = document.createElement('img');
       imageTag.setAttribute('src', picture);
       // for accessiblility
-      imageTag.setAttribute('alt', `${title} closeup view`);
+      imageTag.setAttribute('alt', `agrandir l'image de ${title}`);
       imageTag.classList.add('gallery-media');
       mediaWrap.append(imageTag);
       imageTag.tabIndex = 0;
@@ -29,7 +29,7 @@ function mediaFactory(data, index) {
       const videoTag = document.createElement('video');
       videoTag.setAttribute('src', videoSrc);
       // for accessiblility
-      videoTag.setAttribute('aria-label', `${title} closeup view`);
+      videoTag.setAttribute('aria-label', `agrandir l'image de ${title}`);
       videoTag.classList.add('gallery-media');
       // for accessiblility
       mediaWrap.append(videoTag);
@@ -50,7 +50,7 @@ function mediaFactory(data, index) {
     likedNumber.classList.add('liked-number');
     likedNumber.textContent = likes;
     // for accessiblility
-    likedNumber.setAttribute('aria-label', `${likes} likes`);
+    likedNumber.setAttribute('aria-label', `${likes} jaime`);
     likedNumber.tabIndex = 0;
     const iconDiv = document.createElement('div');
     iconDiv.classList.add('icon-wrap');
@@ -63,7 +63,7 @@ function mediaFactory(data, index) {
     likeIcon.classList.add('fa-solid');
     likeIcon.classList.add('fa-heart');
     likeIcon.classList.add('photoHeart');
-    likeIcon.setAttribute('aria-label', 'click like button');
+    likeIcon.setAttribute('aria-label', 'cliquez jaime');
     likeIcon.tabIndex = 0;
 
     mediaWrap.append(dscrWrap);
@@ -95,6 +95,7 @@ function mediaFactory(data, index) {
 
     /* Add or remove a like on click */
     likeIcon.addEventListener('click', like);
+    likeIcon.setAttribute('role', 'button');
     /* Add or remove a like on keydown Enter */
     likeIcon.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
@@ -102,29 +103,6 @@ function mediaFactory(data, index) {
         like();
       }
     });
-    // /************************
-    //  like button
-    // *************************/
-    // likeIcon.style.cursor = 'pointer';
-    // function addLike() {
-    //   const totalCount = document.getElementById('likes-total');
-    //   totalCount.textContent = parseInt(totalCount.textContent, 10) + 1;
-    //   likedNumber.textContent = parseInt(likedNumber.textContent, 10) + 1;
-    //   likeIcon.classList.add('active');
-    // }
-    // // can click only once by { once: true}
-    // likeIcon.addEventListener('click', (addLike), { once: true });
-    // likeIcon.addEventListener(
-    //   'keydown',
-    //   (event) => {
-    //     // event.preventDefault();
-    //     if (event.key === 'Enter') {
-    //       event.preventDefault();
-    //       addLike();
-    //     }
-    //   },
-    //   { once: true },
-    // );
 
     /************************
       open lightbox
@@ -142,6 +120,8 @@ function mediaFactory(data, index) {
 
     /******* when media is clicked runs function openLb ********/
     function openLb() {
+      lbImgTag.setAttribute('aria-label', title);
+      lbImgTag.tabIndex = 0;
       let child = lbFigure.firstElementChild;
       while (child) {
         lbFigure.removeChild(child);
@@ -221,17 +201,9 @@ function mediaFactory(data, index) {
     lightBox.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         event.preventDefault();
-        console.log('esc works');
         closeLb();
       }
     });
-
-    // lightBox.addEventListener('keydown', (event) => {
-    //   if (event.key === 'ArrowLeft') {
-    //     event.preventDefault();
-    //     console.log('arrow works');
-    //   }
-    // });
 
     return mediaWrap;
   }

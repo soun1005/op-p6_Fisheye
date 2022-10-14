@@ -1,0 +1,38 @@
+@mixin boxshadow {
+    box-shadow: 1px 2px 11px -3px rgba(0,0,0,0.79);
+    -webkit-box-shadow: 1px 2px 11px -3px rgba(0,0,0,0.79);
+    -moz-box-shadow: 1px 2px 11px -3px rgba(0,0,0,0.79);
+}
+
+@mixin hovershadow {
+    box-shadow: 1px 2px 23px 7px rgba(176,176,176,0.88);
+    -webkit-box-shadow: 1px 2px 23px 7px rgba(176,176,176,0.88);
+    -moz-box-shadow: 1px 2px 23px 7px rgba(176,176,176,0.88);
+}
+
+@keyframes scale-up { 
+	0% {
+        transform: scale(1);
+    }
+	100% {
+        transform: scale(1.1);
+    } 
+} 
+
+@keyframes heart-up {
+    0% {
+        transform: scale(1);
+    }
+	100% {
+        transform: scale(1.5);
+    } 
+}
+
+
+@mixin box-animation {
+    animation: scale-up 0.4s both;
+}
+
+@mixin heart-animation {
+    animation: heart-up 0.4s both;
+}

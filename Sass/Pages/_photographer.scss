@@ -12,6 +12,12 @@
         height: 200px;
         border-radius: 50%;
         object-fit: cover;
+        @include boxshadow;
+        transition: 0.5s;
+        &:hover {
+            @include hovershadow;
+            @include box-animation;
+        }
     }
     .header__profile-wrap__name {
         color: $c-sub-bg;
@@ -40,6 +46,14 @@
             object-fit: cover;
             cursor: pointer;
             border-radius: 5px;
+            @include boxshadow;
+            transition: 0.5s;
+        }
+
+        img:hover,
+        video:hover {
+            @include hovershadow;
+            @include box-animation;
         }
 
         .dscr {
@@ -54,6 +68,9 @@
             }
             .photoHeart {
                 color: $c-unclicked;
+                &:hover {
+                    @include heart-animation;
+                }
             }
 
             .photoHeart.active{

@@ -1,3 +1,35 @@
+@-webkit-keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@-webkit-keyframes heart-up {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+@keyframes heart-up {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
@@ -83,7 +115,7 @@ li {
   width: 170px;
   height: 4rem;
   border-radius: 5px;
-  padding-left: 10px;
+  padding-left: 18px;
   padding-top: 8px;
   padding-bottom: 8px;
   cursor: pointer;
@@ -441,6 +473,17 @@ header .logo {
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+  box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
+  -webkit-box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
+  -moz-box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
+  transition: 0.4s;
+}
+.photographer_section article img:hover {
+  box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
+  -webkit-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
+  -moz-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
+  -webkit-animation: scale-up 0.4s both;
+          animation: scale-up 0.4s both;
 }
 .photographer_section article .info {
   text-align: center;
@@ -475,6 +518,17 @@ header .logo {
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+  box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
+  -webkit-box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
+  -moz-box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
+  transition: 0.5s;
+}
+.photograph-header img:hover {
+  box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
+  -webkit-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
+  -moz-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
+  -webkit-animation: scale-up 0.4s both;
+          animation: scale-up 0.4s both;
 }
 .photograph-header .header__profile-wrap__name {
   color: #D3573C;
@@ -503,6 +557,18 @@ header .logo {
      object-fit: cover;
   cursor: pointer;
   border-radius: 5px;
+  box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
+  -webkit-box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
+  -moz-box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
+  transition: 0.5s;
+}
+.media-container .media__wrap img:hover,
+.media-container .media__wrap video:hover {
+  box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
+  -webkit-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
+  -moz-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
+  -webkit-animation: scale-up 0.4s both;
+          animation: scale-up 0.4s both;
 }
 .media-container .media__wrap .dscr {
   display: flex;
@@ -516,6 +582,10 @@ header .logo {
 }
 .media-container .media__wrap .dscr .photoHeart {
   color: RGBA(144, 28, 28, 0.24);
+}
+.media-container .media__wrap .dscr .photoHeart:hover {
+  -webkit-animation: heart-up 0.4s both;
+          animation: heart-up 0.4s both;
 }
 .media-container .media__wrap .dscr .photoHeart.active {
   color: #901C1C;

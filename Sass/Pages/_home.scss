@@ -38,7 +38,14 @@
             width: 200px;
             border-radius: 50%;
             object-fit: cover;
+            @include boxshadow;
+            transition: 0.4s;
+            &:hover {
+                @include hovershadow;
+                @include box-animation;
+            }
         }
+
 
         .info {
             text-align: center;

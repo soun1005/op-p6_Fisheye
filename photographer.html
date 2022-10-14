@@ -31,7 +31,7 @@
         <button
           class="contact_button"
           onclick="displayModal()"
-          aria-label="Contact me"
+          aria-label="Contactez-moi"
         >
           Contactez-moi
         </button>
@@ -48,7 +48,7 @@
                 tabindex="0"
                 aria-expanded="false"
                 role="listitem"
-                aria-label="sorted by popularity"
+                aria-label="sortez par Popularité"
                 aria-controls="filter-list"
               >
                 Popularité
@@ -65,7 +65,7 @@
                     class="filter-list-btn filter-list-popular"
                     role="listitem"
                     tabindex="0"
-                    aria-label="sorted by popularity"
+                    aria-label="sortez par Popularité"
                   >
                     <span>Popularité</span>
                   </button>
@@ -75,7 +75,7 @@
                     class="filter-list-btn filter-list-date"
                     role="listitem"
                     tabindex="0"
-                    aria-label="sorted by date"
+                    aria-label="sortez par la date"
                   >
                     <span>Date</span>
                   </button>
@@ -85,7 +85,7 @@
                     class="filter-list-btn filter-list-title"
                     role="listitem"
                     tabindex="0"
-                    aria-label="sorted by title"
+                    aria-label="sortez par le titre"
                   >
                     <span>Titre</span>
                   </button>
@@ -111,7 +111,7 @@
       <!-- lightbox -->
       <div class="lightbox">
         <div class="lightbox__container">
-          <button class="close-btn" tabindex="0" aria-label="close dialog">
+          <button class="close-btn" tabindex="0" aria-label="fermez dialog">
             <span class="arrow cross-arrow-left"></span>
             <span class="arrow cross-arrow-right"></span>
           </button>
@@ -119,12 +119,12 @@
             <a
               class="arrow arrow-left slide-btn"
               tabindex="0"
-              aria-label="previous image"
+              aria-label="image précédente"
             ></a>
             <figure class="lightbox__img"></figure>
             <a
               class="arrow arrow-right slide-btn"
-              aria-label="next image"
+              aria-label="image suivante"
               tabindex="0"
             ></a>
           </div>
@@ -134,19 +134,15 @@
     </main>
     <!-- end of lightbox -->
     <!-- contact modal -->
-    <div id="contact_modal" tabindex="0">
-      <div class="modal" tabindex="0" aria-labelledby="contactMe">
+    <div id="contact_modal">
+      <div class="modal" tabindex="0">
         <header class="modal__header">
-          <div class="modal__header__wrap">
-            <!-- <h1 id="contactMe" tabindex="0" aria-label="contactez moi">
-              Contactez-moi
-            </h1> -->
-          </div>
+          <div class="modal__header__wrap"></div>
           <button
             class="close-btn"
             tabindex="0"
             onclick="closeModal()"
-            aria-label="close contact form"
+            aria-label="fermez contact form"
           >
             <span class="arrow cross-arrow-left"></span>
             <span class="arrow cross-arrow-right"></span>
@@ -210,7 +206,11 @@
               aria-labelledby="message-input"
             />
           </div>
-          <button class="contact_button" id="contact_btn" aria-label="send">
+          <button
+            class="contact_button"
+            id="contact_btn"
+            aria-label="envoyer message"
+          >
             Envoyer
           </button>
           <!-- </div> -->
@@ -226,7 +226,7 @@
           <button
             class="confirm-modal-btn contact_button"
             id="close-confirm"
-            aria-label="close confirmation"
+            aria-label="fermez confirmation"
           >
             Fermer
           </button>

@@ -35,6 +35,7 @@ function gallerySwitch(direction) {
     image = image.cloneNode();
     lightboxContainer.prepend(image);
     image.classList.add('lightbox__current-element');
+    image.setAttribute('aria-label', lightboxDscr.innerHTML);
   // when the element is video
   } else {
     video = video.cloneNode();
@@ -42,6 +43,7 @@ function gallerySwitch(direction) {
     video.setAttribute('controls', 'true');
     video.setAttribute('autoplay', 'true');
     video.classList.add('lightbox__current-element');
+    video.setAttribute('aria-label', lightboxDscr.innerHTML);
   }
 
   lightboxContainer.setAttribute('id', lightboxId + direction);
