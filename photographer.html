@@ -111,7 +111,11 @@
       <!-- lightbox -->
       <div class="lightbox">
         <div class="lightbox__container">
-          <button class="close-btn" tabindex="0" aria-label="fermez dialog">
+          <button
+            class="close-btn"
+            tabindex="0"
+            aria-label="Fermer la lightbox"
+          >
             <span class="arrow cross-arrow-left"></span>
             <span class="arrow cross-arrow-right"></span>
           </button>
@@ -134,15 +138,15 @@
     </main>
     <!-- end of lightbox -->
     <!-- contact modal -->
-    <div id="contact_modal">
-      <div class="modal" tabindex="0">
+    <div id="contact_modal" tabindex="0" aria-label="Modal de contact">
+      <div class="modal" id="contactForm">
         <header class="modal__header">
           <div class="modal__header__wrap"></div>
           <button
             class="close-btn"
             tabindex="0"
             onclick="closeModal()"
-            aria-label="fermez contact form"
+            aria-label="fermez le formulaire"
           >
             <span class="arrow cross-arrow-left"></span>
             <span class="arrow cross-arrow-right"></span>
@@ -188,7 +192,6 @@
               type="email"
               id="email"
               name="email"
-              placeholder="abc@abcd.com"
               aria-labelledby="email-label"
             />
           </div>
@@ -206,11 +209,7 @@
               aria-labelledby="message-input"
             />
           </div>
-          <button
-            class="contact_button"
-            id="contact_btn"
-            aria-label="envoyer message"
-          >
+          <button class="contact_button" id="contact_btn" aria-label="envoyer">
             Envoyer
           </button>
           <!-- </div> -->
@@ -226,7 +225,7 @@
           <button
             class="confirm-modal-btn contact_button"
             id="close-confirm"
-            aria-label="fermez confirmation"
+            aria-label="Confirmation de fermeture"
           >
             Fermer
           </button>

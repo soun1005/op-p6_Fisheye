@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-console */
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-unused-vars */
@@ -9,6 +11,9 @@ REGEX
 const mailRegex = /^[a-zA-Z][a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}$/;
 const nameRegex = /[a-zA-Z]+/i;
 const modal = document.getElementById('contact_modal');
+const contactForm = document.getElementById('contactForm');
+const closeContactFormModal = document.getElementById('close_button');
+const submitButton = document.getElementById('contact_btn');
 const confirmModal = document.querySelector('.confirm-bg');
 const confirmModalText = document.querySelector('.confirm-modal');
 const inputField = document.querySelectorAll('.text-control');
@@ -19,61 +24,91 @@ const modalDiv = document.querySelector('.modal');
 const modalOverlay = document.querySelector('.modal-overlay');
 
 // open & close modal
-function closeModal() {
+const accessibility = (e) => {
+  // e.key는 esc, 닫기버튼
+  e.key === 'Escape' && closeModal();
+  // 만약에 e.key가 탭이거나, 타겟이 '보내기'버튼이면
+  // 모달안에 포커스 하고 디폴트 노노
+  if (e.key === 'Tab' && e.target === submitButton) {
+    e.preventDefault();
+    modal.focus();
+  }
+};
+
+const closeModal = () => {
+  document.removeEventListener('keydown', accessibility);
   modal.style.display = 'none';
-}
+};
 
-function displayModal() {
-  modal.style.display = 'block';
-  const focusedElementBeforeModal = document.activeElement;
-
-  // Sign-Up button
-  const signUpBtn = modal.querySelector('#signup');
-
-  // Find all focusable children
-  const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
-  let focusableElements = modal.querySelectorAll(focusableElementsString);
-  // Convert NodeList to Array
-  focusableElements = Array.prototype.slice.call(focusableElements);
-
-  const firstTabStop = focusableElements[0];
-  const lastTabStop = focusableElements[focusableElements.length - 1];
-
+const displayModal = () => {
   // Show the modal and overlay
   modal.style.display = 'block';
   modalOverlay.style.display = 'block';
-
-  // Focus first child
-  firstTabStop.focus();
-
-  function trapTabKey(e) {
-    // Check for TAB key press
-    if (e.keyCode === 9) {
-      // SHIFT + TAB
-      if (e.shiftKey) {
-        if (document.activeElement === firstTabStop) {
-          e.preventDefault();
-          lastTabStop.focus();
-        }
-
-      // TAB
-      } else if (document.activeElement === lastTabStop) {
-        e.preventDefault();
-        firstTabStop.focus();
-      }
-    }
-    // ESCAPE
-    if (e.keyCode === 27) {
-      closeModal();
-    }
-  }
-  modal.addEventListener('keydown', trapTabKey);
+  document.addEventListener('keydown', accessibility);
+  modal.focus();
   modalOverlay.addEventListener('click', closeModal);
-}
+};
 
-function closeConfirm() {
+const closeConfirm = () => {
+  confirmModal.removeEventListener('keydown', accessibility);
   confirmModal.style.display = 'none';
-}
+};
+
+// function closeConfirm() {
+//   confirmModal.style.display = 'none';
+// }
+
+// function displayModal() {
+//   modal.style.display = 'block';
+//   const focusedElementBeforeModal = document.activeElement;
+
+//   // Sign-Up button
+//   const signUpBtn = modal.querySelector('#signup');
+
+//   // Find all focusable children
+//   const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+//   let focusableElements = modal.querySelectorAll(focusableElementsString);
+//   // Convert NodeList to Array
+//   focusableElements = Array.prototype.slice.call(focusableElements);
+
+//   const firstTabStop = focusableElements[0];
+//   const lastTabStop = focusableElements[focusableElements.length - 1];
+
+//   // Show the modal and overlay
+//   modal.style.display = 'block';
+//   modalOverlay.style.display = 'block';
+
+//   // Focus first child
+//   firstTabStop.focus();
+
+//   function trapTabKey(e) {
+//     // Check for TAB key press
+//     if (e.keyCode === 9) {
+//       // SHIFT + TAB
+//       if (e.shiftKey) {
+//         if (document.activeElement === firstTabStop) {
+//           e.preventDefault();
+//           lastTabStop.focus();
+//         }
+
+//       // TAB
+//       } else if (document.activeElement === lastTabStop) {
+//         e.preventDefault();
+//         firstTabStop.focus();
+//       }
+//     }
+//     // ESCAPE
+//     if (e.keyCode === 27) {
+//       closeModal();
+//     }
+//   }
+//   modal.addEventListener('keydown', trapTabKey);
+//   modalOverlay.addEventListener('click', closeModal);
+// }
+
+// function closeConfirm() {
+//   confirmModal.style.display = 'none';
+// }
 
 // input control
 

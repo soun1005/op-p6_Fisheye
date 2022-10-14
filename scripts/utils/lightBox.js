@@ -120,19 +120,3 @@ lightBox.addEventListener('keydown', (event) => {
     mediaSlideRightBtn();
   }
 });
-
-// lightBox.addEventListener = (e) => {
-//   switch (e.key) {
-//     case 'ArrowLeft':
-//       e.preventDefault();
-//       console.log('arrow button works');
-//       mediaSlideLeftBtn();
-//       break;
-//     case 39:
-//       e.preventDefault();
-//       mediaSlideRightBtn();
-//       break;
-//     default:
-//       break;
-//   }
-// };
