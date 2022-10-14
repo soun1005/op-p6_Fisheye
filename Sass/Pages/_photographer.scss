@@ -13,7 +13,7 @@
         border-radius: 50%;
         object-fit: cover;
         @include boxshadow;
-        transition: 0.5s;
+        transition: $transtion;
         &:hover {
             @include hovershadow;
             @include box-animation;
@@ -47,7 +47,7 @@
             cursor: pointer;
             border-radius: 5px;
             @include boxshadow;
-            transition: 0.5s;
+            transition: $transtion;
         }
 
         img:hover,
@@ -68,6 +68,7 @@
             }
             .photoHeart {
                 color: $c-unclicked;
+                transition: $transtion;
                 &:hover {
                     @include heart-animation;
                 }

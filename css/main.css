@@ -3,7 +3,7 @@
     transform: scale(1);
   }
   100% {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 }
 @keyframes scale-up {
@@ -11,7 +11,7 @@
     transform: scale(1);
   }
   100% {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 }
 @-webkit-keyframes heart-up {
@@ -482,8 +482,8 @@ header .logo {
   box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
   -webkit-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
   -moz-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
-  -webkit-animation: scale-up 0.4s both;
-          animation: scale-up 0.4s both;
+  -webkit-animation: scale-up 0.2s both ease-in-out;
+          animation: scale-up 0.2s both ease-in-out;
 }
 .photographer_section article .info {
   text-align: center;
@@ -521,14 +521,14 @@ header .logo {
   box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
   -webkit-box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
   -moz-box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
-  transition: 0.5s;
+  transition: 0.15s ease-in-out;
 }
 .photograph-header img:hover {
   box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
   -webkit-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
   -moz-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
-  -webkit-animation: scale-up 0.4s both;
-          animation: scale-up 0.4s both;
+  -webkit-animation: scale-up 0.2s both ease-in-out;
+          animation: scale-up 0.2s both ease-in-out;
 }
 .photograph-header .header__profile-wrap__name {
   color: #D3573C;
@@ -560,15 +560,15 @@ header .logo {
   box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
   -webkit-box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
   -moz-box-shadow: 1px 2px 11px -3px rgba(0, 0, 0, 0.79);
-  transition: 0.5s;
+  transition: 0.15s ease-in-out;
 }
 .media-container .media__wrap img:hover,
 .media-container .media__wrap video:hover {
   box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
   -webkit-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
   -moz-box-shadow: 1px 2px 23px 7px rgba(176, 176, 176, 0.88);
-  -webkit-animation: scale-up 0.4s both;
-          animation: scale-up 0.4s both;
+  -webkit-animation: scale-up 0.2s both ease-in-out;
+          animation: scale-up 0.2s both ease-in-out;
 }
 .media-container .media__wrap .dscr {
   display: flex;
@@ -582,10 +582,11 @@ header .logo {
 }
 .media-container .media__wrap .dscr .photoHeart {
   color: RGBA(144, 28, 28, 0.24);
+  transition: 0.15s ease-in-out;
 }
 .media-container .media__wrap .dscr .photoHeart:hover {
-  -webkit-animation: heart-up 0.4s both;
-          animation: heart-up 0.4s both;
+  -webkit-animation: heart-up 0.2s both ease-in-out;
+          animation: heart-up 0.2s both ease-in-out;
 }
 .media-container .media__wrap .dscr .photoHeart.active {
   color: #901C1C;

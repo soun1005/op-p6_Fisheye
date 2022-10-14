@@ -103,7 +103,6 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     contactName.tabIndex = 0;
     modalHeaderWrap.append(contactName);
 
-
     return profileDiv;
   }
 
