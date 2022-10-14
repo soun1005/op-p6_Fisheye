@@ -58,8 +58,14 @@ filterMainBtn.addEventListener('click', () => {
     buttonCurrentValue.setAttribute('aria-expanded', false);
   }
 
-  // last button border-radius
-  const displayedBtn = list.style.display;
+  // border radius for 2nd button when display:block
+  const sortBtns = document.querySelectorAll('li');
+  const sortBtnsArr = Array.from(sortBtns);
+
+  const btnsDisplayed = sortBtnsArr.filter((element) => element.style.display === 'block');
+  const lastElem = btnsDisplayed[1];
+  const lastBtn = lastElem.querySelector('button');
+  lastBtn.style.borderRadius = '0 0 5px 5px';
 });
 
 //  when 'popularity' is clicked.

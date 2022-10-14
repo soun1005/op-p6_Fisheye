@@ -79,25 +79,52 @@ function mediaFactory(data, index) {
      like button
     *************************/
     likeIcon.style.cursor = 'pointer';
-    function addLike() {
-      const totalCount = document.getElementById('likes-total');
-      totalCount.textContent = parseInt(totalCount.textContent, 10) + 1;
-      likedNumber.textContent = parseInt(likedNumber.textContent, 10) + 1;
-      likeIcon.classList.add('active');
+    const totalCount = document.getElementById('likes-total');
+
+    function like() {
+      if (likeIcon.classList.contains('active')) {
+        likeIcon.classList.toggle('active');
+        totalCount.textContent = parseInt(totalCount.textContent, 10) - 1;
+        likedNumber.textContent = parseInt(likedNumber.textContent, 10) - 1;
+      } else {
+        likeIcon.classList.toggle('active');
+        totalCount.textContent = parseInt(totalCount.textContent, 10) + 1;
+        likedNumber.textContent = parseInt(likedNumber.textContent, 10) + 1;
+      }
     }
-    // can click only once by { once: true}
-    likeIcon.addEventListener('click', (addLike), { once: true });
-    likeIcon.addEventListener(
-      'keydown',
-      (event) => {
-        // event.preventDefault();
-        if (event.key === 'Enter') {
-          event.preventDefault();
-          addLike();
-        }
-      },
-      { once: true },
-    );
+
+    /* Add or remove a like on click */
+    likeIcon.addEventListener('click', like);
+    /* Add or remove a like on keydown Enter */
+    likeIcon.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        like();
+      }
+    });
+    // /************************
+    //  like button
+    // *************************/
+    // likeIcon.style.cursor = 'pointer';
+    // function addLike() {
+    //   const totalCount = document.getElementById('likes-total');
+    //   totalCount.textContent = parseInt(totalCount.textContent, 10) + 1;
+    //   likedNumber.textContent = parseInt(likedNumber.textContent, 10) + 1;
+    //   likeIcon.classList.add('active');
+    // }
+    // // can click only once by { once: true}
+    // likeIcon.addEventListener('click', (addLike), { once: true });
+    // likeIcon.addEventListener(
+    //   'keydown',
+    //   (event) => {
+    //     // event.preventDefault();
+    //     if (event.key === 'Enter') {
+    //       event.preventDefault();
+    //       addLike();
+    //     }
+    //   },
+    //   { once: true },
+    // );
 
     /************************
       open lightbox

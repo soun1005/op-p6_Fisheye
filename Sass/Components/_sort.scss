@@ -86,7 +86,6 @@ li {
         display: flex;
         align-items: center;
     }
-
 }
 
 /* when the main button is clicked add active class */
@@ -100,9 +99,9 @@ li {
     border-radius: 5px 5px 0 0;
 }
 
-.filter-list-btn.active {
-    border-radius: 0 0 5px 5px;
-}
+// .filter-list-btn.active {
+//     border-radius: 0 0 5px 5px;
+// }
 
 .fa-downside.active {
     transform: rotate(270deg);
