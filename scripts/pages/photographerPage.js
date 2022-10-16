@@ -48,7 +48,7 @@ function displayGallery(medias) {
 async function init() {
 // fetch Json data
   const { photographers, media } = await getJsonData();
-  //   photographerId = photographer's ID
+  // photographerId = photographer's ID
   const photographerId = getIdParameter();
 
   // 'photographer' = object of the photographer that matched ID in Json
@@ -63,7 +63,6 @@ async function init() {
   displayGallery(photographerMedias);
   // from /utils/like-counter.js
   countLike(photographerMedias);
-  // sortMedias();
   filterPopul();
 }
 init();

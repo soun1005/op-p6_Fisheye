@@ -13,12 +13,12 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
   // data.portrait = address of the imgs
   const picture = `assets/photographers/${portrait}`;
 
-  // to create 'article' in index.html
-  function getUserCardDOM(cardNum) {
-    /**** <article> & <a> ************************/
+  function getUserCardDOM() {
+    // to create 'article' in index.html
     const article = document.createElement('article');
     const photographerLink = document.createElement('a');
     photographerLink.href = `photographer.html?id=${id}`;
+
     // accessibility
     photographerLink.setAttribute('role', 'link');
 
@@ -59,7 +59,7 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
   }
 
   // profile dom for photographer.html
-  function getUserProfileDom(cardNum) {
+  function getUserProfileDom() {
 
     const photographeHeader = document.querySelector('.photograph-header');
     const profileDiv = document.createElement('div');
@@ -89,7 +89,6 @@ function photographerFactory(data) { // eslint-disable-line no-unused-vars
     tagLine.classList.add('header__profile-wrap__tagline');
     profileDiv.classList.add('header__profile-wrap');
     profileImg.classList.add('header__img');
-    // profileImg.setAttribute('aria-label', 'photo');
 
     // user price
     const userPrice = document.getElementById('user-price');

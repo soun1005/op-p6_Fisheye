@@ -26,7 +26,7 @@ filterMainBtn.addEventListener('click', () => {
   const buttonCurrentValue = document.querySelector('.filter-main-btn');
   const list = document.querySelector('.filter-list');
 
-  // each buttons inside <li>
+  // 3 buttons of <li>
   listElements.forEach((elem) => {
     // if list match the main button, display none
     const textContent = elem.querySelector('span').innerText;
@@ -44,7 +44,6 @@ filterMainBtn.addEventListener('click', () => {
     }
   });
 
-  // list.style.display = currentDisplay === 'none' ? 'block' : 'none';
   // if the list is expanded
   if (!list.classList.contains('active')) {
     filterList.classList.add('active');

@@ -1,22 +1,31 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable no-unused-vars */
+/********************************************
+  this file contains function
+        to switch gallery medias
+  open&close lightbox -> /factories/media.js
+*********************************************/
+
 const lightBox = document.querySelector('.lightbox');
 const lbCloseBtn = document.querySelector('.close-btn');
-
-lbCloseBtn.style.cursor = 'pointer';
-
 // arrow buttons on lightbox
 const arrowBtns = document.querySelectorAll('.slide-btn');
 
-// when arrows are clicked,
+lbCloseBtn.style.cursor = 'pointer';
+
+/*************************************
+ when arrows are clicked or entered
+************************************/
 function gallerySwitch(direction) {
   // image, figcaption
   const lightboxContainer = document.querySelector('.lightbox__img');
+
   // gallery div (media, title, heart icon)
   const galleryMedias = document.querySelectorAll('.media__wrap');
-  // length of medias
-  // console.log(galleryMedias.length);
+
   // id of each media
   const lightboxId = parseInt(lightboxContainer.getAttribute('id'), 10);
+
   // remove lightbox img src, lightbox dscr contents
   const lightboxDscr = document.querySelector('.lightbox__dscr');
   const nextMedia = galleryMedias[lightboxId + direction];
@@ -49,6 +58,9 @@ function gallerySwitch(direction) {
   lightboxContainer.setAttribute('id', lightboxId + direction);
 }
 
+/**************************
+ to get id of each elements
+***************************/
 function getLbInfo() {
   const lightboxContainer = document.querySelector('.lightbox__img');
   // gallery div (media, title, heart icon)

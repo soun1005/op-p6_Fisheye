@@ -4,18 +4,27 @@
 /* eslint-disable padded-blocks */
 /* eslint-disable spaced-comment */
 
+/********************************
+mediaFactory() includes :
+          media gallery,
+          like button,
+          open&close of lightbox
+*********************************/
+
 function mediaFactory(data, index) {
   const {
     photographerId, title, image, likes, date, price, video,
   } = data;
 
+  // each medias indicate the location where they are saved
   const picture = `assets/images/${photographerId}/${image}`;
   const videoSrc = `assets/images/${photographerId}/${video}`;
 
-  // to display medias
   function getMediaDom() {
+    // mediaWrap wraps each of medias
     const mediaWrap = document.createElement('div');
     mediaWrap.classList.add('media__wrap');
+
     // if there is image, add <img> or <video>
     if (image) {
       const imageTag = document.createElement('img');
@@ -28,37 +37,44 @@ function mediaFactory(data, index) {
     } else {
       const videoTag = document.createElement('video');
       videoTag.setAttribute('src', videoSrc);
+      videoTag.classList.add('gallery-media');
+      mediaWrap.append(videoTag);
       // for accessiblility
       videoTag.setAttribute('aria-label', `agrandir l'image de ${title}`);
-      videoTag.classList.add('gallery-media');
-      // for accessiblility
-      mediaWrap.append(videoTag);
       videoTag.tabIndex = 0;
     }
 
+    // div class = "dscr"
     const dscrWrap = document.createElement('div');
     dscrWrap.classList.add('dscr');
 
+    // p class = "dscr__title"
     const mediaTitle = document.createElement('p');
     mediaTitle.classList.add('dscr__title');
-    // for accessiblility
     mediaTitle.textContent = title;
 
+    // div class = "dscr__like-count"
     const countLikeWrap = document.createElement('div');
     countLikeWrap.classList.add('dscr__like-count');
+
+    // p class = "liked-number"
     const likedNumber = document.createElement('p');
     likedNumber.classList.add('liked-number');
     likedNumber.textContent = likes;
-    // for accessiblility
     likedNumber.setAttribute('aria-label', `${likes} jaime`);
     likedNumber.tabIndex = 0;
+
+    // div class = "icon-wrap"
     const iconDiv = document.createElement('div');
     iconDiv.classList.add('icon-wrap');
+
+    // p class = "element-date"
     const elementDate = document.createElement('p');
     elementDate.textContent = date;
     elementDate.classList.add('element-date');
     elementDate.style.display = 'none';
 
+    // heart icon under the media
     const likeIcon = document.createElement('span');
     likeIcon.classList.add('fa-solid');
     likeIcon.classList.add('fa-heart');
@@ -66,6 +82,7 @@ function mediaFactory(data, index) {
     likeIcon.setAttribute('aria-label', 'cliquez jaime');
     likeIcon.tabIndex = 0;
 
+    // appending divs
     mediaWrap.append(dscrWrap);
     mediaWrap.append(countLikeWrap);
     dscrWrap.append(mediaTitle);
@@ -105,7 +122,7 @@ function mediaFactory(data, index) {
     });
 
     /************************
-      open lightbox
+      lightbox
     *************************/
     const lightBox = document.querySelector('.lightbox');
     const lbImgTag = document.createElement('img');
@@ -143,14 +160,18 @@ function mediaFactory(data, index) {
         lbVideoTag.tabIndex = -1;
         lbVideoTag.classList.add('lightbox__current-element');
       }
+
       // media description
       const figCaption = document.createElement('figcaption');
       figCaption.textContent = title;
       figCaption.classList.add('lightbox__dscr');
       lbFigure.append(figCaption);
+
       // accessibility
       const focusedElementBeforeModal = document.activeElement;
+
       // Find all focusable children
+
       const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
       let focusableElements = lightBox.querySelectorAll(focusableElementsString);
       // Convert NodeList to Array
@@ -178,16 +199,12 @@ function mediaFactory(data, index) {
             e.preventDefault();
             firstTabStop.focus();
           }
-          // // ESCAPE
-          // if (e.keyCode === 27) {
-          //   e.preventDefault();
-          //   closeLb();
-          // }
         }
       }
       firstTabStop.focus();
       lightBox.addEventListener('keydown', trapTabKey);
     }
+
     // when media element is clicked
     mediaWrap.childNodes[0].addEventListener('click', (openLb));
     // open lightbox with enter key
