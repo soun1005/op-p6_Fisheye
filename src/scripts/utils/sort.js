@@ -121,7 +121,6 @@ function filterDate() {
   mediaDivsArr.sort((a, b) => {
     const dateA = a.querySelector('.element-date').innerHTML;
     const dateB = b.querySelector('.element-date').innerHTML;
-    // console.log(typeof likesA);
     // date turn into string ( 1990-04-20 -> 19900420);
     const dateAnum = dateA.replace(/\D/g, '');
     const dateBnum = dateB.replace(/\D/g, '');

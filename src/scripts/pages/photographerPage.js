@@ -57,8 +57,6 @@ async function init() {
 
   //  medias that match photographer
   const photographerMedias = getMediaByPhotographerId(photographerId, media);
-  console.log('photographerMedia', photographerMedias);
-
   // medias = photographerMedias
   displayGallery(photographerMedias);
   // from /utils/like-counter.js

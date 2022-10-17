@@ -121,14 +121,12 @@ arrowBtns[1].addEventListener(
 lightBox.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft') {
     event.preventDefault();
-    // console.log('arrow left works');
     mediaSlideLeftBtn();
   }
 });
 lightBox.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowRight') {
     event.preventDefault();
-    // console.log('arrow right works');
     mediaSlideRightBtn();
   }
 });
