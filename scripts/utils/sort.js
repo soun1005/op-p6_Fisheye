@@ -11,63 +11,80 @@ const listBtnDate = document.querySelector('.filter-list-date');
 const listBtnTitle = document.querySelector('.filter-list-title');
 const filterList = document.querySelector('.filter-list');
 const arrow = document.querySelector('.fa-downside');
+const listElements = document.querySelectorAll('li');
 
-// media divs into array
+/*************************
+turn media divs to array
+*************************/
 function intoArray() {
   const mediaDivs = document.querySelectorAll('.media__wrap');
-  // turn mediaDivs to arrays
   const mediaDivsArr = Array.from(mediaDivs);
   return { mediaDivs, mediaDivsArr };
 }
 
-// open nav list
-filterMainBtn.addEventListener('click', () => {
-  const listElements = document.querySelectorAll('li');
-  const buttonCurrentValue = document.querySelector('.filter-main-btn');
-  const list = document.querySelector('.filter-list');
-
+/****************************
+this function is triggered
+when 'trier par' is clicked
+****************************/
+function filterManager() {
   // 3 buttons of <li>
   listElements.forEach((elem) => {
     // if list match the main button, display none
     const textContent = elem.querySelector('span').innerText;
 
-    if (textContent === buttonCurrentValue.innerText) {
+    if (textContent === filterMainBtn.innerText) {
       elem.style.display = 'none';
+      arrow.classList.add('active');
     } else {
       elem.style.display = 'block';
       elem.addEventListener('click', () => {
-        buttonCurrentValue.innerText = textContent;
+        filterMainBtn.innerText = textContent;
         filterList.classList.remove('active');
-        buttonCurrentValue.classList.remove('active');
-        buttonCurrentValue.setAttribute('aria-label', buttonCurrentValue.innerText);
+        filterMainBtn.classList.remove('active');
+        filterMainBtn.setAttribute('aria-label', filterMainBtn.innerText);
+        arrow.classList.remove('active');
       });
     }
   });
 
   // if the list is expanded
-  if (!list.classList.contains('active')) {
+  if (!filterList.classList.contains('active')) {
     filterList.classList.add('active');
-    buttonCurrentValue.classList.add('active');
+    filterMainBtn.classList.add('active');
     arrow.classList.add('active');
-    buttonCurrentValue.setAttribute('aria-expanded', true);
+    filterMainBtn.setAttribute('aria-expanded', true);
   } else {
     filterList.classList.remove('active');
-    buttonCurrentValue.classList.remove('active');
+    filterMainBtn.classList.remove('active');
     arrow.classList.remove('active');
-    buttonCurrentValue.setAttribute('aria-expanded', false);
+    filterMainBtn.setAttribute('aria-expanded', false);
   }
 
   // border radius for 2nd button when display:block
   const sortBtns = document.querySelectorAll('li');
   const sortBtnsArr = Array.from(sortBtns);
-
   const btnsDisplayed = sortBtnsArr.filter((element) => element.style.display === 'block');
   const lastElem = btnsDisplayed[1];
   const lastBtn = lastElem.querySelector('button');
   lastBtn.style.borderRadius = '0 0 5px 5px';
+}
+// when 'trier par' button is clicked,
+filterMainBtn.addEventListener('click', (filterManager));
+// closing 'trier par' with ESC
+filterMainBtn.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    filterList.classList.remove('active');
+    filterMainBtn.classList.remove('active');
+    arrow.classList.remove('active');
+    filterMainBtn.setAttribute('aria-expanded', false);
+  }
 });
 
-//  when 'popularity' is clicked.
+/*******************************
+functions to sort media gallery
+********************************/
+
+// when 'popularity' is selected
 function filterPopul() {
   filterMainBtn.classList.remove('active');
   filterList.classList.remove('active');
@@ -77,7 +94,6 @@ function filterPopul() {
     const likesA = a.querySelector('.liked-number').innerHTML;
     const likesB = b.querySelector('.liked-number').innerHTML;
 
-    // console.log(typeof likesA);
     const likesAnum = parseInt(likesA, 10);
     const likesBnum = parseInt(likesB, 10);
 
@@ -90,10 +106,13 @@ function filterPopul() {
   });
   const mediaContainer = document.querySelector('.media-container');
   mediaContainer.innerHTML = '';
-  /*** append organised elements back in media-container ***/
+  /******* append newly sorted elements back in media-container *******/
   mediaContainer.append(...mediaDivsArr);
+  const dateList = document.querySelector('.filter-list-date');
+  dateList.style.borderRadius = '0';
 }
 
+// when 'Date' is selected
 function filterDate() {
   const { mediaDivsArr } = intoArray();
   filterMainBtn.classList.remove('active');
@@ -119,6 +138,7 @@ function filterDate() {
   mediaContainer.append(...mediaDivsArr);
 }
 
+// when 'Title' is selected
 function filterTitle() {
   filterMainBtn.setAttribute('aria-label', 'trier par titre');
   const { mediaDivsArr } = intoArray();
@@ -136,6 +156,7 @@ function filterTitle() {
   mediaContainer.append(...mediaDivsArr);
 }
 
+// each filters' event
 listBtnPopular.addEventListener('click', filterPopul);
 listBtnPopular.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {

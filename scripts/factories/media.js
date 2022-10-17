@@ -16,7 +16,7 @@ function mediaFactory(data, index) {
     photographerId, title, image, likes, date, price, video,
   } = data;
 
-  // each medias indicate the location where they are saved
+  // address of its media
   const picture = `assets/images/${photographerId}/${image}`;
   const videoSrc = `assets/images/${photographerId}/${video}`;
 
@@ -110,10 +110,10 @@ function mediaFactory(data, index) {
       }
     }
 
-    /* Add or remove a like on click */
+    /* Add or remove like on click */
     likeIcon.addEventListener('click', like);
     likeIcon.setAttribute('role', 'button');
-    /* Add or remove a like on keydown Enter */
+    /* Add or remove like on Enter */
     likeIcon.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
@@ -130,10 +130,6 @@ function mediaFactory(data, index) {
     const lbFigure = document.querySelector('.lightbox__img');
     const modalOverlayLb = document.querySelector('.modal-overlay-lightbox');
     const lbCloseBtn = document.querySelector('.close-btn');
-
-    function closeLb() {
-      lightBox.style.display = 'none';
-    }
 
     /******* when media is clicked runs function openLb ********/
     function openLb() {
@@ -205,7 +201,11 @@ function mediaFactory(data, index) {
       lightBox.addEventListener('keydown', trapTabKey);
     }
 
-    // when media element is clicked
+    function closeLb() {
+      lightBox.style.display = 'none';
+    }
+
+    // when media element is clicked, open lightbox
     mediaWrap.childNodes[0].addEventListener('click', (openLb));
     // open lightbox with enter key
     mediaWrap.childNodes[0].addEventListener('keydown', (event) => {
@@ -214,6 +214,7 @@ function mediaFactory(data, index) {
         openLb();
       }
     });
+    // close lightbox by X button or Escape key
     lbCloseBtn.addEventListener('click', (closeLb));
     lightBox.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {

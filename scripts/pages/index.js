@@ -3,10 +3,12 @@
 /* global getJsonData */
 /* eslint no-undef: "error" */
 
-/********* display photographer data inside photographer_section *********/
+/*****************************************************
+ display photographer data inside photographer_section
+ *****************************************************/
 async function displayData(photographers) {
   const photographersSection = document.querySelector('.photographer_section');
-  // loop for each { photographer } objects (by forEach)
+  // loop for each { photographer } objects by 'forEach'
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
@@ -17,8 +19,6 @@ async function displayData(photographers) {
 
 async function init() {
 /******* Récupère les datas des photographes********/
-// const result = getJasonData()
-// result.photographers
   const { photographers } = await getJsonData();
   displayData(photographers);
 }

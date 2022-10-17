@@ -22,37 +22,33 @@ const contactModal = document.getElementById('contact_modal');
 // accessibility
 const modalDiv = document.querySelector('.modal');
 const modalOverlay = document.querySelector('.modal-overlay');
-
-// open & close modal
-const accessibility = (e) => {
-  // e.key는 esc, 닫기버튼
+function accessibility(e) {
   e.key === 'Escape' && closeModal();
-  // 만약에 e.key가 탭이거나, 타겟이 '보내기'버튼이면
-  // 모달안에 포커스 하고 디폴트 노노
+  // submit button is last element to focus
   if (e.key === 'Tab' && e.target === submitButton) {
     e.preventDefault();
     modal.focus();
   }
-};
+}
 
-const closeModal = () => {
-  document.removeEventListener('keydown', accessibility);
-  modal.style.display = 'none';
-};
-
-const displayModal = () => {
+function displayModal() {
   // Show the modal and overlay
   modal.style.display = 'block';
   modalOverlay.style.display = 'block';
   document.addEventListener('keydown', accessibility);
   modal.focus();
   modalOverlay.addEventListener('click', closeModal);
-};
+}
 
-const closeConfirm = () => {
+function closeModal() {
+  document.removeEventListener('keydown', accessibility);
+  modal.style.display = 'none';
+}
+
+function closeConfirm() {
   confirmModal.removeEventListener('keydown', accessibility);
   confirmModal.style.display = 'none';
-};
+}
 
 /**********************************************************
 Error message control
@@ -114,8 +110,9 @@ const messageValidation = () => {
   }
 };
 
-// 4. Console input values
-
+/***********************
+4. Console input values
+************************/
 const consoleValue = () => {
   const inputText = document.querySelectorAll('.text-control');
   inputText.forEach((input) => {
@@ -123,7 +120,9 @@ const consoleValue = () => {
   });
 };
 
-// 5. Confirm Modal
+/****************
+5. Confirm Modal
+*****************/
 const confirmModalOn = (e) => {
   // when the validation failed
   const errorsVisible = document.querySelectorAll('[data-error-visible="true"]');
@@ -139,11 +138,11 @@ const confirmModalOn = (e) => {
   }
 };
 
-/************************************
+/*************************************************
 6. Submit button.
 All validation functions combined.
 When submit btn is clicked -> validate all inputs.
-************************************/
+**************************************************/
 const send = document.getElementById('form');
 send.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -155,5 +154,6 @@ send.addEventListener('submit', (e) => {
   confirmModalOn();
 });
 
+// close confirmation modal
 const confirmBtn = document.getElementById('close-confirm');
 confirmBtn.addEventListener('click', closeConfirm);

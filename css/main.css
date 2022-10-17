@@ -162,15 +162,11 @@ li {
 .filter-list.active {
   display: block;
   position: absolute;
-  z-index: 1000;
+  z-index: 1;
 }
 
 .filter-main-btn.active {
   border-radius: 5px 5px 0 0;
-}
-
-.fa-downside.active {
-  transform: rotate(270deg);
 }
 
 .fa-downside {
@@ -179,6 +175,10 @@ li {
   left: 67%;
   color: white;
   transform: rotate(90deg);
+}
+
+.fa-downside.active {
+  transform: rotate(270deg);
 }
 
 #contact_modal {
@@ -358,6 +358,7 @@ form #message {
   -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
   display: none;
+  z-index: 1000;
 }
 .lightbox figcaption {
   color: #901C1C;

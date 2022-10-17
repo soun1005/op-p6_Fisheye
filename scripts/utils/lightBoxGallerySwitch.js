@@ -1,5 +1,6 @@
 /* eslint-disable spaced-comment */
 /* eslint-disable no-unused-vars */
+
 /********************************************
   this file contains function
         to switch gallery medias
@@ -13,7 +14,7 @@ const arrowBtns = document.querySelectorAll('.slide-btn');
 
 lbCloseBtn.style.cursor = 'pointer';
 
-/*************************************
+/************************************
  when arrows are clicked or entered
 ************************************/
 function gallerySwitch(direction) {
@@ -54,7 +55,6 @@ function gallerySwitch(direction) {
     video.classList.add('lightbox__current-element');
     video.setAttribute('aria-label', lightboxDscr.innerHTML);
   }
-
   lightboxContainer.setAttribute('id', lightboxId + direction);
 }
 

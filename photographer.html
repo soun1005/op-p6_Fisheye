@@ -21,6 +21,7 @@
           src="assets/images/logo.png"
           class="logo"
           alt="lien page d'acceuil"
+          tabindex="0"
         />
       </a>
     </header>
@@ -32,6 +33,7 @@
           class="contact_button"
           onclick="displayModal()"
           aria-label="Contactez-moi"
+          tabindex="0"
         >
           Contactez-moi
         </button>
@@ -47,7 +49,6 @@
                 class="filter-main-btn"
                 tabindex="0"
                 aria-expanded="false"
-                role="listitem"
                 aria-label="sortez par Popularité"
                 aria-controls="filter-list"
               >
@@ -58,6 +59,7 @@
               ></span>
             </div>
             <!-- 3 options of filter -->
+            <!-- index - voice over deactivate :  -->
             <nav>
               <ul class="filter-list" role="group">
                 <li class="filter-list-main-btn">
@@ -124,12 +126,14 @@
               class="arrow arrow-left slide-btn"
               tabindex="0"
               aria-label="image précédente"
+              role="button"
             ></a>
             <figure class="lightbox__img"></figure>
             <a
               class="arrow arrow-right slide-btn"
               aria-label="image suivante"
               tabindex="0"
+              role="button"
             ></a>
           </div>
         </div>
@@ -238,7 +242,7 @@
     <script src="/scripts/factories/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/utils/sort.js"></script>
-    <script src="/scripts/utils/likeCounter.js"></script>
-    <script src="/scripts/utils/lightBox.js"></script>
+    <script src="/scripts/utils/likeCountTotal.js"></script>
+    <script src="/scripts/utils/lightBoxGallerySwitch.js"></script>
   </body>
 </html>

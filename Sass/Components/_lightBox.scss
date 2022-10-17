@@ -7,6 +7,7 @@
     background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8px);
     display: none;
+    z-index: 1000;
 
     figcaption {
         color: $c-main;
